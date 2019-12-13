@@ -1,0 +1,6 @@
+Django
+psycopg2
+graphene_django
+flake8
+Faker
+django-cors-headers
