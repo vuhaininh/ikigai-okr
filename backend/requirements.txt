@@ -4,3 +4,4 @@ graphene_django
 flake8
 factory_boy
 django-cors-headers
+django-filter
