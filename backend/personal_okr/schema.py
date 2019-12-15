@@ -1,5 +1,6 @@
 from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
+from graphql_relay import from_global_id
 from graphene_django.filter import DjangoFilterConnectionField
 import graphene
 from personal_okr.models import Tag, Objective, KeyResult
@@ -10,6 +11,21 @@ class TagNode(DjangoObjectType):
         model = Tag
         filter_fields = ['name']
         interfaces = (relay.Node,)
+
+
+class TagMutation(relay.ClientIDMutation):
+    class Input:
+        name = graphene.String(required=True)
+        id = graphene.ID()
+
+    tag = graphene.Field(TagNode)
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, name, id):
+        tag = Tag.objects.get(pk=from_global_id(id)[1])
+        tag.name = name
+        tag.save()
+        return TagMutation(tag=tag)
 
 
 class ObjectiveNode(DjangoObjectType):
