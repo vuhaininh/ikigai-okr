@@ -1,0 +1,5 @@
+
+*.pyc
+*.pyc
+backend/ikigai_okr/__pycache__/settings.cpython-36.pyc
+__pycache__

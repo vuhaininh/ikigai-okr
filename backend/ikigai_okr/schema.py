@@ -1,7 +1,8 @@
 import graphene
+from personal_okr.schema import Query as pok_Query
 
 
-class Query(graphene.ObjectType):
+class Query(pok_Query, graphene.ObjectType):
     pass
 
 

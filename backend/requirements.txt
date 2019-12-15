@@ -2,5 +2,5 @@ Django
 psycopg2
 graphene_django
 flake8
-Faker
+factory_boy
 django-cors-headers

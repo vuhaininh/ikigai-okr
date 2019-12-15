@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',  # Required for GraphiQL
     'users',
     'graphene_django',
+    'personal_okr',
+    'helpers',
 ]
 AUTH_USER_MODEL = 'users.User'
 # GRAPHENE for GraphQl Django
