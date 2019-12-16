@@ -13,7 +13,7 @@ class TagNode(DjangoObjectType):
         interfaces = (relay.Node,)
 
 
-class TagMutation(relay.ClientIDMutation):
+class UpdateTagMutation(relay.ClientIDMutation):
     class Input:
         name = graphene.String(required=True)
         id = graphene.ID()
@@ -24,7 +24,36 @@ class TagMutation(relay.ClientIDMutation):
         tag = Tag.objects.get(pk=from_global_id(input.get('id'))[1])
         tag.name = input.get('name')
         tag.save()
-        return TagMutation(tag=tag)
+        return UpdateTagMutation(tag=tag)
+
+
+class CreateTagMutation(relay.ClientIDMutation):
+    class Input:
+        name = graphene.String()
+
+    tag = graphene.Field(TagNode)
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        user = info.context.user or None
+        tag = Tag(
+            name=input.get('name'),
+            user=user,
+        )
+        tag.save()
+        return CreateTagMutation(tag=tag)
+
+
+class DeleteTagMutation(relay.ClientIDMutation):
+    class Input:
+        id = graphene.ID()
+    tag = graphene.Field(TagNode)
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        tag = Tag.objects.get(pk=from_global_id(input.get('id'))[1])
+        tag.delete()
+        return DeleteTagMutation(tag=tag)
 
 
 class ObjectiveNode(DjangoObjectType):
@@ -55,4 +84,6 @@ class Query(graphene.ObjectType):
 
 
 class Mutation(graphene.AbstractType):
-    update_tag = TagMutation.Field()
+    update_tag = UpdateTagMutation.Field()
+    create_tag = CreateTagMutation.Field()
+    delete_tag = DeleteTagMutation.Field()

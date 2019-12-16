@@ -5,3 +5,4 @@ flake8
 factory_boy
 django-cors-headers
 django-filter
+django-graphql-jwt

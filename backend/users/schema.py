@@ -36,6 +36,13 @@ class CreateUserMutation(relay.ClientIDMutation):
 class Query(graphene.ObjectType):
     user = relay.Node.Field(UserNode)
     all_users = DjangoFilterConnectionField(UserNode)
+    me = graphene.Field(UserNode)
+
+    def resolve_me(self, info):
+        user = info.context.user
+        if user.is_anonymous:
+            raise Exception('Not logged in!')
+        return user
 
 
 class Mutation(graphene.AbstractType):
