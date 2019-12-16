@@ -13,6 +13,30 @@ class UserNode(DjangoObjectType):
         interfaces = (relay.Node,)
 
 
+class CreateUserMutation(relay.ClientIDMutation):
+    class Input:
+        email = graphene.String()
+        first_name = graphene.String()
+        last_name = graphene.String()
+        password = graphene.String()
+    user = graphene.Field(UserNode)
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        user = User(
+            email=input.get('email'),
+            first_name=input.get('first_name'),
+            last_name=input.get('last_name'),
+        )
+        user.set_password(input.get('password'))
+        user.save()
+        return CreateUserMutation(user=user)
+
+
 class Query(graphene.ObjectType):
     user = relay.Node.Field(UserNode)
     all_users = DjangoFilterConnectionField(UserNode)
+
+
+class Mutation(graphene.AbstractType):
+    create_user = CreateUserMutation.Field()

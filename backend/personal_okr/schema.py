@@ -17,13 +17,12 @@ class TagMutation(relay.ClientIDMutation):
     class Input:
         name = graphene.String(required=True)
         id = graphene.ID()
-
     tag = graphene.Field(TagNode)
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, name, id):
-        tag = Tag.objects.get(pk=from_global_id(id)[1])
-        tag.name = name
+    def mutate_and_get_payload(cls, root, info, **input):
+        tag = Tag.objects.get(pk=from_global_id(input.get('id'))[1])
+        tag.name = input.get('name')
         tag.save()
         return TagMutation(tag=tag)
 
@@ -53,3 +52,7 @@ class Query(graphene.ObjectType):
 
     key_result = relay.Node.Field(KeyResultNode)
     all_key_results = DjangoFilterConnectionField(KeyResultNode)
+
+
+class Mutation(graphene.AbstractType):
+    update_tag = TagMutation.Field()

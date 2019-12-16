@@ -1,19 +1,15 @@
 import graphene
-import personal_okr.schema.Query
-import personal_okr.schema.TagMuTation
-import users.schema.Query
+from personal_okr.schema import Query as pok_Query
+from personal_okr.schema import Mutation as pok_Mutation
+from users.schema import Query as users_Query
+from users.schema import Mutation as users_Mutation
 
 
-class Query(
-        personal_okr.schema.Query,
-        users.schema.Query,
-        graphene.ObjectType):
+class Query(pok_Query, users_Query, graphene.ObjectType):
     pass
 
 
-class Mutation(
-        personal_okr.schema.TagMuTation,
-        graphene.ObjectType):
+class Mutation(pok_Mutation, users_Mutation, graphene.ObjectType):
     pass
 
 
