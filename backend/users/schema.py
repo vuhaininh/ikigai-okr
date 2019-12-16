@@ -1,36 +1,49 @@
+from graphene import relay, ObjectType
+from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 import graphene
-from graphene_django.types import DjangoObjectType
-from .models import User
+
+from users.models import User
 
 
-class UserType(DjangoObjectType):
+class UserNode(DjangoObjectType):
     class Meta:
         model = User
+        filter_fields = ['first_name', 'last_name', 'email']
+        interfaces = (relay.Node,)
 
 
-class Query(object):
-    all_users = graphene.List(UserType)
-    user = graphene.Field(UserType,
-                          id=graphene.Int(),
-                          first_name=graphene.String(),
-                          last_name=graphene.String(),
-                          email=graphene.String(),
-                          )
+class CreateUserMutation(relay.ClientIDMutation):
+    class Input:
+        email = graphene.String()
+        first_name = graphene.String()
+        last_name = graphene.String()
+        password = graphene.String()
+    user = graphene.Field(UserNode)
 
-    def resolve_all_users(self, info, **kwargs):
-        return User.objects.all()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        user = User(
+            email=input.get('email'),
+            first_name=input.get('first_name'),
+            last_name=input.get('last_name'),
+        )
+        user.set_password(input.get('password'))
+        user.save()
+        return CreateUserMutation(user=user)
 
-    def resolve_user(self, info, **kwargs):
-        id = kwargs.get('id')
-        first_name = kwargs.get('first_name')
-        last_name = kwargs.get('last_name')
-        email = kwargs.get('email')
-        if id is not None:
-            return User.objects.get(pk=id)
-        if first_name is not None:
-            return User.objects.get(first_name=first_name)
-        if last_name is not None:
-            return User.objects.get(last_name=last_name)
-        if email is not None:
-            return User.objects.get(email=email)
-        return None
+
+class Query(graphene.ObjectType):
+    user = relay.Node.Field(UserNode)
+    all_users = DjangoFilterConnectionField(UserNode)
+    me = graphene.Field(UserNode)
+
+    def resolve_me(self, info):
+        user = info.context.user
+        if user.is_anonymous:
+            raise Exception('Not logged in!')
+        return user
+
+
+class Mutation(graphene.AbstractType):
+    create_user = CreateUserMutation.Field()

@@ -1,77 +1,89 @@
+from graphene import relay, ObjectType
+from graphene_django import DjangoObjectType
+from graphql_relay import from_global_id
+from graphene_django.filter import DjangoFilterConnectionField
 import graphene
-from graphene_django.types import DjangoObjectType
-from .models import Tag, KeyResult, Objective
+from personal_okr.models import Tag, Objective, KeyResult
 
 
-class TagType(DjangoObjectType):
+class TagNode(DjangoObjectType):
     class Meta:
         model = Tag
+        filter_fields = ['name']
+        interfaces = (relay.Node,)
 
 
-class ObjectiveType(DjangoObjectType):
+class UpdateTagMutation(relay.ClientIDMutation):
+    class Input:
+        name = graphene.String(required=True)
+        id = graphene.ID()
+    tag = graphene.Field(TagNode)
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        tag = Tag.objects.get(pk=from_global_id(input.get('id'))[1])
+        tag.name = input.get('name')
+        tag.save()
+        return UpdateTagMutation(tag=tag)
+
+
+class CreateTagMutation(relay.ClientIDMutation):
+    class Input:
+        name = graphene.String()
+
+    tag = graphene.Field(TagNode)
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        user = info.context.user or None
+        tag = Tag(
+            name=input.get('name'),
+            user=user,
+        )
+        tag.save()
+        return CreateTagMutation(tag=tag)
+
+
+class DeleteTagMutation(relay.ClientIDMutation):
+    class Input:
+        id = graphene.ID()
+    tag = graphene.Field(TagNode)
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        tag = Tag.objects.get(pk=from_global_id(input.get('id'))[1])
+        tag.delete()
+        return DeleteTagMutation(tag=tag)
+
+
+class ObjectiveNode(DjangoObjectType):
     class Meta:
         model = Objective
+        filter_fields = {
+            'description': ['exact', 'icontains', 'istartswith'], }
+        interfaces = (relay.Node,)
 
 
-class KeyResultType(DjangoObjectType):
+class KeyResultNode(DjangoObjectType):
     class Meta:
         model = KeyResult
+        filter_fields = {
+            'description': ['exact', 'icontains', 'istartswith'], }
+        interfaces = (relay.Node,)
 
 
-class Query(object):
-    tag = graphene.Field(TagType,
-                         id=graphene.Int(),
-                         name=graphene.String())
-    all_tags = graphene.List(TagType)
-    objective = graphene.Field(ObjectiveType,
-                               id=graphene.Int(),
-                               description=graphene.String(),
-                               finished_date=graphene.Date())
-    all_objectives = graphene.List(ObjectiveType)
-    key_result = graphene.Field(KeyResultType,
-                                id=graphene.Int(),
-                                description=graphene.Int(),
-                                finished_date=graphene.Date())
-    all_key_results = graphene.List(KeyResultType)
+class Query(graphene.ObjectType):
+    tag = relay.Node.Field(TagNode)
+    all_tags = DjangoFilterConnectionField(TagNode)
 
-    def resolve_all_tags(self, info, **kwargs):
-        return Tag.objects.all()
+    objective = relay.Node.Field(ObjectiveNode)
+    all_objectives = DjangoFilterConnectionField(ObjectiveNode)
 
-    def resolve_tag(self, info, **kwargs):
-        id = kwargs.get('id')
-        name = kwargs.get('name')
-        if id is not None:
-            return Tag.objects.get(pk=id)
-        if name is not None:
-            return Tag.objects.get(name=name)
-        return None
+    key_result = relay.Node.Field(KeyResultNode)
+    all_key_results = DjangoFilterConnectionField(KeyResultNode)
 
-    def resolve_all_objectives(self, info, **kwargs):
-        return Objective.objects.all()
 
-    def resolve_objective(self, info, **kwargs):
-        id = kwargs.get('id')
-        description = kwargs.get('description')
-        finished_date = kwargs.get('finished_date')
-        if id is not None:
-            return Objective.objects.get(pk=id)
-        if description is not None:
-            return Objective.objects.get(description=description)
-        if finished_date is not None:
-            return Objective.objects.get(finished_date=finished_date)
-        return None
-
-    def resolve_all_key_results(self, info, **kwargs):
-        return KeyResult.objects.select_related('objective').all()
-
-    def resolve_key_result(self, info, **kwargs):
-        id = kwargs.get('id')
-        description = kwargs.get('description')
-        finished_date = kwargs.get('finished_date')
-        if id is not None:
-            return KeyResult.objects.get(pk=id)
-        if description is not None:
-            return KeyResult.objects.get(description=description)
-        if finished_date is not None:
-            return KeyResult.objects.get(finished_date=finished_date)
-        return None
+class Mutation(graphene.AbstractType):
+    update_tag = UpdateTagMutation.Field()
+    create_tag = CreateTagMutation.Field()
+    delete_tag = DeleteTagMutation.Field()

@@ -14,7 +14,13 @@ docker-compose run --rm backend python3 manage.py startapp personal_okr
 docker-compose run --rm backend python3 manage.py migrate
 python3 manage.py createsuperuser
 autopep8 --in-place --aggressive --aggressive tests.py
-docker-compose run backend sh -c  "python3 manage.py test"
+docker-compose run --rm backend sh -c  "python3 manage.py test"
 docker-compose run --rm backend sh -c "python3 manage.py test && flake8"
 python.jediEnabled
 C:\Users\Hai Ninh Vu\AppData\Roaming\Python\Python37\Scripts
+docker exec -ti 8e7 bash
+mutation {
+  tokenAuth(email: "test@iok.today", password: "thientai") {
+    token
+  }
+}
