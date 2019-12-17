@@ -1,36 +1,28 @@
 from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django_cud.mutations import DjangoCreateMutation
 import graphene
-
-from users.models import User
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth import get_user_model
 
 
 class UserNode(DjangoObjectType):
     class Meta:
-        model = User
+        model = get_user_model()
         filter_fields = ['first_name', 'last_name', 'email']
         interfaces = (relay.Node,)
 
 
-class CreateUserMutation(relay.ClientIDMutation):
-    class Input:
-        email = graphene.String()
-        first_name = graphene.String()
-        last_name = graphene.String()
-        password = graphene.String()
-    user = graphene.Field(UserNode)
+class CreateUserMutation(DjangoCreateMutation):
+    class Meta:
+        model = get_user_model()
+        required_firleds = ("email", "password")
+        only_fields = ("email", "password", "first_name", "last_name")
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        user = User(
-            email=input.get('email'),
-            first_name=input.get('first_name'),
-            last_name=input.get('last_name'),
-        )
-        user.set_password(input.get('password'))
-        user.save()
-        return CreateUserMutation(user=user)
+    def handle_password(cls, value, name, info):
+        return make_password(value)
 
 
 class Query(graphene.ObjectType):

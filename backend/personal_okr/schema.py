@@ -4,6 +4,8 @@ from graphql_relay import from_global_id
 from graphene_django.filter import DjangoFilterConnectionField
 import graphene
 from personal_okr.models import Tag, Objective, KeyResult
+from django.contrib.auth import get_user_model
+from users.schema import UserNode
 
 
 class TagNode(DjangoObjectType):
@@ -30,15 +32,15 @@ class UpdateTagMutation(relay.ClientIDMutation):
 class CreateTagMutation(relay.ClientIDMutation):
     class Input:
         name = graphene.String()
+        user_id = graphene.ID()
 
     tag = graphene.Field(TagNode)
-
+    user = graphene.Field(UserNode)
     @classmethod
     def mutate_and_get_payload(cls, root, info, **input):
-        user = info.context.user or None
         tag = Tag(
             name=input.get('name'),
-            user=user,
+            user=get_user_model().objects.filter(id=input.get('user')).first(),
         )
         tag.save()
         return CreateTagMutation(tag=tag)
