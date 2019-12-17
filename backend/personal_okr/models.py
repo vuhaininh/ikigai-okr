@@ -7,6 +7,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=255)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
+        related_name='tag',
         on_delete=models.CASCADE,
     )
 
@@ -18,8 +19,10 @@ class Objective(models.Model):
     """Objective of an OKR"""
     description = models.CharField(max_length=500)
     finished_date = models.DateField()
+    deadline = models.DateField(default=None, null=True, blank=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
+        related_name='objectives',
         on_delete=models.CASCADE
     )
     tags = models.ManyToManyField(Tag)
@@ -34,6 +37,7 @@ class KeyResult(models.Model):
         Objective, related_name='key_results', on_delete=models.CASCADE)
     description = models.CharField(max_length=500)
     finished_date = models.DateField()
+    deadline = models.DateField(default=None, null=True, blank=True)
 
     def __str__(self):
         return self.description

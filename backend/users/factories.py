@@ -1,10 +1,10 @@
 import factory
-from .models import User
+from django.contrib.auth import get_user_model
 
 
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = User
+        model = get_user_model()
 
     first_name = factory.Faker('first_name')
     last_name = factory.Faker('last_name')
