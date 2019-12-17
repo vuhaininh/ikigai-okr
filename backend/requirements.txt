@@ -7,3 +7,4 @@ django-cors-headers
 django-filter
 django-graphql-jwt
 graphene_django_cud
+faker

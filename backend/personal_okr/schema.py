@@ -2,6 +2,7 @@ from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
 from graphql_relay import from_global_id
 from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django_cud.mutations import DjangoCreateMutation, DjangoPatchMutation, DjangoDeleteMutation
 import graphene
 from personal_okr.models import Tag, Objective, KeyResult
 from django.contrib.auth import get_user_model
@@ -15,47 +16,19 @@ class TagNode(DjangoObjectType):
         interfaces = (relay.Node,)
 
 
-class UpdateTagMutation(relay.ClientIDMutation):
-    class Input:
-        name = graphene.String(required=True)
-        id = graphene.ID()
-    tag = graphene.Field(TagNode)
-
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        tag = Tag.objects.get(pk=from_global_id(input.get('id'))[1])
-        tag.name = input.get('name')
-        tag.save()
-        return UpdateTagMutation(tag=tag)
+class CreateTagMutation(DjangoCreateMutation):
+    class Meta:
+        model = Tag
 
 
-class CreateTagMutation(relay.ClientIDMutation):
-    class Input:
-        name = graphene.String()
-        user_id = graphene.ID()
-
-    tag = graphene.Field(TagNode)
-    user = graphene.Field(UserNode)
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        tag = Tag(
-            name=input.get('name'),
-            user=get_user_model().objects.filter(id=input.get('user')).first(),
-        )
-        tag.save()
-        return CreateTagMutation(tag=tag)
+class PatchTagMutation(DjangoPatchMutation):
+    class Meta:
+        model = Tag
 
 
-class DeleteTagMutation(relay.ClientIDMutation):
-    class Input:
-        id = graphene.ID()
-    tag = graphene.Field(TagNode)
-
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        tag = Tag.objects.get(pk=from_global_id(input.get('id'))[1])
-        tag.delete()
-        return DeleteTagMutation(tag=tag)
+class DeleteTagMutation(DjangoDeleteMutation):
+    class Meta:
+        model = Tag
 
 
 class ObjectiveNode(DjangoObjectType):
@@ -64,6 +37,21 @@ class ObjectiveNode(DjangoObjectType):
         filter_fields = {
             'description': ['exact', 'icontains', 'istartswith'], }
         interfaces = (relay.Node,)
+
+
+class CreateObjectiveMutation(DjangoCreateMutation):
+    class Meta:
+        model = Objective
+
+
+class PatchObjectiveMutation(DjangoPatchMutation):
+    class Meta:
+        model = Objective
+
+
+class DeleteObjectiveMutation(DjangoDeleteMutation):
+    class Meta:
+        model = Objective
 
 
 class KeyResultNode(DjangoObjectType):
@@ -86,6 +74,6 @@ class Query(graphene.ObjectType):
 
 
 class Mutation(graphene.AbstractType):
-    update_tag = UpdateTagMutation.Field()
+    patch_tag = PatchTagMutation.Field()
     create_tag = CreateTagMutation.Field()
     delete_tag = DeleteTagMutation.Field()

@@ -1,7 +1,7 @@
 from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
-from graphene_django_cud.mutations import DjangoCreateMutation
+from graphene_django_cud.mutations import DjangoCreateMutation, DjangoPatchMutation, DjangoDeleteMutation
 import graphene
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
@@ -10,7 +10,7 @@ from django.contrib.auth import get_user_model
 class UserNode(DjangoObjectType):
     class Meta:
         model = get_user_model()
-        filter_fields = ['first_name', 'last_name', 'email']
+        filter_fields = ['id', 'first_name', 'last_name', 'email']
         interfaces = (relay.Node,)
 
 
@@ -19,6 +19,17 @@ class CreateUserMutation(DjangoCreateMutation):
         model = get_user_model()
         required_firleds = ("email", "password")
         only_fields = ("email", "password", "first_name", "last_name")
+
+    @classmethod
+    def handle_password(cls, value, name, info):
+        return make_password(value)
+
+
+class PatchUserMutation(DjangoPatchMutation):
+    class Meta:
+        model = get_user_model()
+        only_fields = ("email", "password", "first_name", "last_name")
+        login_required = True
 
     @classmethod
     def handle_password(cls, value, name, info):
@@ -39,3 +50,4 @@ class Query(graphene.ObjectType):
 
 class Mutation(graphene.AbstractType):
     create_user = CreateUserMutation.Field()
+    patch_user = PatchUserMutation.Field()
