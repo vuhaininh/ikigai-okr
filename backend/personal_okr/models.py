@@ -7,6 +7,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=255)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
+        related_name='tag',
         on_delete=models.CASCADE,
     )
 
@@ -21,6 +22,7 @@ class Objective(models.Model):
     deadline = models.DateField(default=None, null=True, blank=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
+        related_name='objectives',
         on_delete=models.CASCADE
     )
     tags = models.ManyToManyField(Tag)

@@ -62,6 +62,21 @@ class KeyResultNode(DjangoObjectType):
         interfaces = (relay.Node,)
 
 
+class CreateKeyResultMutation(DjangoCreateMutation):
+    class Meta:
+        model = KeyResult
+
+
+class PatchKeyResultMutation(DjangoPatchMutation):
+    class Meta:
+        model = KeyResult
+
+
+class DeleteKeyResultMutation(DjangoDeleteMutation):
+    class Meta:
+        model = KeyResult
+
+
 class Query(graphene.ObjectType):
     tag = relay.Node.Field(TagNode)
     all_tags = DjangoFilterConnectionField(TagNode)
@@ -74,6 +89,14 @@ class Query(graphene.ObjectType):
 
 
 class Mutation(graphene.AbstractType):
-    patch_tag = PatchTagMutation.Field()
     create_tag = CreateTagMutation.Field()
+    patch_tag = PatchTagMutation.Field()
     delete_tag = DeleteTagMutation.Field()
+
+    create_objective = CreateObjectiveMutation.Field()
+    patch_objective = PatchObjectiveMutation.Field()
+    delete_objective = DeleteObjectiveMutation.Field()
+
+    create_keyresult = CreateKeyResultMutation.Field()
+    patch_key_result = PatchKeyResultMutation.Field()
+    delete_key_result = DeleteKeyResultMutation.Field()

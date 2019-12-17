@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'graphene_django',
     'personal_okr',
     'helpers',
+    'rest_framework',
 ]
 AUTH_USER_MODEL = 'users.User'
 # GRAPHENE for GraphQl Django
