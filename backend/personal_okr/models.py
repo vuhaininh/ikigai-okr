@@ -10,6 +10,7 @@ class Tag(models.Model):
         related_name='tag',
         on_delete=models.CASCADE,
     )
+    is_public = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -26,6 +27,7 @@ class Objective(models.Model):
         on_delete=models.CASCADE
     )
     tags = models.ManyToManyField(Tag)
+    is_public = models.BooleanField(default=False)
 
     def __str__(self):
         return self.description
@@ -38,6 +40,7 @@ class KeyResult(models.Model):
     description = models.CharField(max_length=500)
     finished_date = models.DateField()
     deadline = models.DateField(default=None, null=True, blank=True)
+    is_public = models.BooleanField(default=False)
 
     def __str__(self):
         return self.description
