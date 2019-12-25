@@ -14,6 +14,8 @@ class Mutation(pok_Mutation, users_Mutation, graphene.ObjectType):
     token_auth = graphql_jwt.ObtainJSONWebToken.Field()
     verify_token = graphql_jwt.Verify.Field()
     refresh_token = graphql_jwt.Refresh.Field()
+    # Long running refresh tokens
+    revoke_token = graphql_jwt.relay.Revoke.Field()
 
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

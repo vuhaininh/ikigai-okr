@@ -1,6 +1,6 @@
 from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
-from graphql_relay import from_global_id
+from graphql_jwt.decorators import login_required
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django_cud.mutations import DjangoCreateMutation, DjangoPatchMutation, DjangoDeleteMutation
 import graphene
@@ -19,6 +19,7 @@ class TagNode(DjangoObjectType):
 class CreateTagMutation(DjangoCreateMutation):
     class Meta:
         model = Tag
+        login_required = True
 
 
 class PatchTagMutation(DjangoPatchMutation):
@@ -65,6 +66,7 @@ class KeyResultNode(DjangoObjectType):
 class CreateKeyResultMutation(DjangoCreateMutation):
     class Meta:
         model = KeyResult
+        login_required = True
 
 
 class PatchKeyResultMutation(DjangoPatchMutation):
@@ -80,12 +82,18 @@ class DeleteKeyResultMutation(DjangoDeleteMutation):
 class Query(graphene.ObjectType):
     tag = relay.Node.Field(TagNode)
     all_tags = DjangoFilterConnectionField(TagNode)
-
     objective = relay.Node.Field(ObjectiveNode)
     all_objectives = DjangoFilterConnectionField(ObjectiveNode)
 
     key_result = relay.Node.Field(KeyResultNode)
     all_key_results = DjangoFilterConnectionField(KeyResultNode)
+
+    @login_required
+    def resolve_all_tags(self, info):
+        if not info.context.user.is_authenticated:
+            return Tag.objects.none()
+        else:
+            return Tag.objects.filter(user=info.context.user)
 
 
 class Mutation(graphene.AbstractType):
