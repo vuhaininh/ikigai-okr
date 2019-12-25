@@ -51,6 +51,9 @@ GRAPHENE = {
     'MIDDLEWARE': [
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
     ],
+    'SCHEMA_OUTPUT': 'data/schema.json',  # defaults to schema.json,
+    # Defaults to None (displays all data on a single line)
+    'SCHEMA_INDENT': 2,
 }
 GRAPHQL_JWT = {
     'JWT_ALLOW_ARGUMENT': True,
