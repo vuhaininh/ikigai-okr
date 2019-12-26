@@ -1,0 +1,349 @@
+input CreateKeyResultInput {
+  objective: ID!
+  description: String!
+  finishedDate: Date!
+  deadline: Date
+  isPublic: Boolean
+}
+
+type CreateKeyResultMutation {
+  keyResult: KeyResultNode
+}
+
+input CreateObjectiveInput {
+  description: String!
+  finishedDate: Date!
+  deadline: Date
+  user: ID!
+  tags: [ID]!
+  isPublic: Boolean
+  keyResults: [ID]
+}
+
+type CreateObjectiveMutation {
+  objective: ObjectiveNode
+}
+
+input CreateTagInput {
+  name: String!
+  user: ID!
+  isPublic: Boolean
+  objectiveSet: [ID]
+}
+
+type CreateTagMutation {
+  tag: TagNode
+}
+
+input CreateUserInput {
+  password: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+}
+
+type CreateUserMutation {
+  user: UserNode
+}
+
+"""
+The `Date` scalar type represents a Date
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar Date
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+type DeleteKeyResultMutation {
+  found: Boolean
+  deletedId: ID
+}
+
+type DeleteObjectiveMutation {
+  found: Boolean
+  deletedId: ID
+}
+
+type DeleteTagMutation {
+  found: Boolean
+  deletedId: ID
+}
+
+"""
+The `GenericScalar` scalar type represents a generic
+GraphQL scalar value that could be:
+String, Boolean, Int, Float, List or Object.
+"""
+scalar GenericScalar
+
+type KeyResultNode implements Node {
+  """The ID of the object."""
+  id: ID!
+  objective: ObjectiveNode!
+  description: String!
+  finishedDate: Date!
+  deadline: Date
+  isPublic: Boolean!
+}
+
+type KeyResultNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [KeyResultNodeEdge]!
+}
+
+"""A Relay edge containing a `KeyResultNode` and its cursor."""
+type KeyResultNodeEdge {
+  """The item at the end of the edge"""
+  node: KeyResultNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type LogInMutation {
+  token: String
+  user: UserNode
+}
+
+type LogOutMutation {
+  token: String
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): CreateUserMutation
+  patchUser(id: ID!, input: PatchUserInput!): PatchUserMutation
+  login(email: String, password: String): LogInMutation
+  logout(token: String): LogOutMutation
+  createTag(input: CreateTagInput!): CreateTagMutation
+  patchTag(id: ID!, input: PatchTagInput!): PatchTagMutation
+  deleteTag(id: ID!): DeleteTagMutation
+  createObjective(input: CreateObjectiveInput!): CreateObjectiveMutation
+  patchObjective(id: ID!, input: PatchObjectiveInput!): PatchObjectiveMutation
+  deleteObjective(id: ID!): DeleteObjectiveMutation
+  createKeyresult(input: CreateKeyResultInput!): CreateKeyResultMutation
+  patchKeyResult(id: ID!, input: PatchKeyResultInput!): PatchKeyResultMutation
+  deleteKeyResult(id: ID!): DeleteKeyResultMutation
+
+  """Obtain JSON Web Token mutation"""
+  tokenAuth(email: String!, password: String!): ObtainJSONWebToken
+  verifyToken(token: String!): Verify
+  refreshToken(refreshToken: String!): Refresh
+  revokeToken(input: RevokeInput!): RevokePayload
+}
+
+"""An object with an ID"""
+interface Node {
+  """The ID of the object."""
+  id: ID!
+}
+
+type ObjectiveNode implements Node {
+  """The ID of the object."""
+  id: ID!
+  description: String!
+  finishedDate: Date!
+  deadline: Date
+  user: UserNode!
+  tags(before: String, after: String, first: Int, last: Int, name: String): TagNodeConnection!
+  isPublic: Boolean!
+  keyResults(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): KeyResultNodeConnection!
+}
+
+type ObjectiveNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [ObjectiveNodeEdge]!
+}
+
+"""A Relay edge containing a `ObjectiveNode` and its cursor."""
+type ObjectiveNodeEdge {
+  """The item at the end of the edge"""
+  node: ObjectiveNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+"""Obtain JSON Web Token mutation"""
+type ObtainJSONWebToken {
+  token: String
+  refreshToken: String
+}
+
+"""
+The Relay compliant `PageInfo` type, containing data necessary to paginate this connection.
+"""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+input PatchKeyResultInput {
+  objective: ID
+  description: String
+  finishedDate: Date
+  deadline: Date
+  isPublic: Boolean
+}
+
+type PatchKeyResultMutation {
+  keyResult: KeyResultNode
+}
+
+input PatchObjectiveInput {
+  description: String
+  finishedDate: Date
+  deadline: Date
+  user: ID
+  tags: [ID]
+  isPublic: Boolean
+  keyResults: [ID]
+}
+
+type PatchObjectiveMutation {
+  objective: ObjectiveNode
+}
+
+input PatchTagInput {
+  name: String
+  user: ID
+  isPublic: Boolean
+  objectiveSet: [ID]
+}
+
+type PatchTagMutation {
+  tag: TagNode
+}
+
+input PatchUserInput {
+  password: String
+  email: String
+  firstName: String
+  lastName: String
+}
+
+type PatchUserMutation {
+  user: UserNode
+}
+
+type Query {
+  """The ID of the object"""
+  user(id: ID!): UserNode
+  allUsers(before: String, after: String, first: Int, last: Int, id: ID, firstName: String, lastName: String, email: String): UserNodeConnection
+  me: UserNode
+
+  """The ID of the object"""
+  tag(id: ID!): TagNode
+  allTags(before: String, after: String, first: Int, last: Int, name: String): TagNodeConnection
+
+  """The ID of the object"""
+  objective(id: ID!): ObjectiveNode
+  allObjectives(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): ObjectiveNodeConnection
+
+  """The ID of the object"""
+  keyResult(id: ID!): KeyResultNode
+  allKeyResults(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): KeyResultNodeConnection
+}
+
+type Refresh {
+  token: String
+  payload: GenericScalar
+  refreshToken: String
+}
+
+input RevokeInput {
+  refreshToken: String!
+  clientMutationId: String
+}
+
+type RevokePayload {
+  revoked: Int
+  clientMutationId: String
+}
+
+type TagNode implements Node {
+  """The ID of the object."""
+  id: ID!
+  name: String!
+  user: UserNode!
+  isPublic: Boolean!
+  objectiveSet(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): ObjectiveNodeConnection!
+}
+
+type TagNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [TagNodeEdge]!
+}
+
+"""A Relay edge containing a `TagNode` and its cursor."""
+type TagNodeEdge {
+  """The item at the end of the edge"""
+  node: TagNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type UserNode implements Node {
+  """The ID of the object."""
+  id: ID!
+  password: String!
+  lastLogin: DateTime
+
+  """
+  Designates that this user has all permissions without explicitly assigning them.
+  """
+  isSuperuser: Boolean!
+  email: String!
+  firstName: String!
+  lastName: String!
+  isActive: Boolean!
+  isStaff: Boolean!
+  tag(before: String, after: String, first: Int, last: Int, name: String): TagNodeConnection!
+  objectives(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): ObjectiveNodeConnection!
+}
+
+type UserNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [UserNodeEdge]!
+}
+
+"""A Relay edge containing a `UserNode` and its cursor."""
+type UserNodeEdge {
+  """The item at the end of the edge"""
+  node: UserNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type Verify {
+  payload: GenericScalar
+}
+
