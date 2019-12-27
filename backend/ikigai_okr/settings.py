@@ -43,6 +43,15 @@ INSTALLED_APPS = [
     'personal_okr',
     'helpers',
     'rest_framework',
+    'corsheaders',
+]
+CORS_ORIGIN_WHITELIST = [
+    'http://0.0.0.0:3000',
+    'http://localhost:8000',
+    'http://localhost:8080',
+    'http://localhost:3000',
+    'https://localhost:3000',
+    'https://localhost:8000'
 ]
 AUTH_USER_MODEL = 'users.User'
 # GRAPHENE for GraphQl Django
@@ -59,7 +68,7 @@ GRAPHQL_JWT = {
     'JWT_ALLOW_ARGUMENT': True,
     'JWT_VERIFY_EXPIRATION': True,
     'JWT_LONG_RUNNING_REFRESH_TOKEN': True,
-    'JWT_EXPIRATION_DELTA': timedelta(minutes=0.5),
+    'JWT_EXPIRATION_DELTA': timedelta(minutes=180),
     'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=7),
 }
 AUTHENTICATION_BACKENDS = [
@@ -67,6 +76,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

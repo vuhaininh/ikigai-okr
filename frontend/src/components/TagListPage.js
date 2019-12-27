@@ -7,7 +7,9 @@ import environment from '../Environment'
 import TagList from './TagList';
 const TagListPageQuery = graphql`
   query TagListPageQuery {
-        ...TagList_alltags
+    allTags{
+      ...TagList_tags
+    }
   }
 `
 class TagListPage extends Component {
@@ -20,8 +22,8 @@ class TagListPage extends Component {
           render={({error, props}) => {
             if (error) {
               return <div>{error.message}</div>
-            } else if (props) {
-              return <TagList alltags={props.alltags} />
+            } else if (props) {            
+              return <TagList tags={props.allTags} />
             }
             return <div>Loading</div>
           }}

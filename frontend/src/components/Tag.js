@@ -8,15 +8,18 @@ class Tag extends Component {
     render() { 
         return ( 
             <div>
+                <div>{this.props.tag.id}</div>
                 <div>{this.props.tag.name}</div>
             </div>
          );
     }
 }
  
-export default createFragmentContainer(Tag, graphql`
+export default createFragmentContainer(Tag, {
+    tag: graphql`
     fragment Tag_tag on TagNode{
         id
         name
     }
-`);
+`
+});

@@ -88,13 +88,6 @@ class Query(graphene.ObjectType):
     key_result = relay.Node.Field(KeyResultNode)
     all_key_results = DjangoFilterConnectionField(KeyResultNode)
 
-    @login_required
-    def resolve_all_tags(self, info):
-        if not info.context.user.is_authenticated:
-            return Tag.objects.none()
-        else:
-            return Tag.objects.filter(user=info.context.user)
-
 
 class Mutation(graphene.AbstractType):
     create_tag = CreateTagMutation.Field()

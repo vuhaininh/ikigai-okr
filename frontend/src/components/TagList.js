@@ -6,27 +6,23 @@ import {
   } from 'react-relay'
 class TagList extends Component {
     state = {  }
-    render() { 
+    render() {         
         return ( 
             <div>
-                {this.props.viewer.allTags.edges.map(({node})=>
-                    <Tag key={node.__id} tag={node} />
-                )}
-            </div>
+            {this.props.tags.edges.map(({node}) =>
+                <Tag key={node.__id} tag={node} />
+            )}
+          </div>
          );
     }
 }
  
-export default createFragmentContainer(TagList, graphql`
-    fragment TagList_alltags on Query{
-        allTags(first: 10) @connection(key: "TagList_allTags", filters: []){
+export default createFragmentContainer(TagList, {tags: graphql`
+    fragment TagList_tags on TagNodeConnection{
             edges{
                 node{
                     ...Tag_tag
-                }
-                
+                }           
             }
-        }
     }
-
-`);
+`});

@@ -12,7 +12,7 @@ const {
   // 3
   const network = Network.create((operation, variables) => {
     // 4
-    return fetch('http://localhost:8000/graphql', {
+    return fetch('http://localhost:8000/graphql/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

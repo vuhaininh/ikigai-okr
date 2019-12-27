@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 665f20db18ae13461e841bd22081d742
+ * @relayHash 9e7f3e1dd97855eff411cd3117103b5b
  */
 
 /* eslint-disable */
@@ -9,10 +9,12 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type TagList_alltags$ref = any;
+type TagList_tags$ref = any;
 export type TagListPageQueryVariables = {||};
 export type TagListPageQueryResponse = {|
-  +$fragmentRefs: TagList_alltags$ref
+  +allTags: ?{|
+    +$fragmentRefs: TagList_tags$ref
+  |}
 |};
 export type TagListPageQuery = {|
   variables: TagListPageQueryVariables,
@@ -23,22 +25,16 @@ export type TagListPageQuery = {|
 
 /*
 query TagListPageQuery {
-  ...TagList_alltags
+  allTags {
+    ...TagList_tags
+  }
 }
 
-fragment TagList_alltags on Query {
-  allTags(first: 10) {
-    edges {
-      node {
-        ...Tag_tag
-        id
-        __typename
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
+fragment TagList_tags on TagNodeConnection {
+  edges {
+    node {
+      ...Tag_tag
+      id
     }
   }
 }
@@ -49,15 +45,7 @@ fragment Tag_tag on TagNode {
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
-var v0 = [
-  {
-    "kind": "Literal",
-    "name": "first",
-    "value": 10
-  }
-];
-return {
+const node/*: ConcreteRequest*/ = {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -67,9 +55,20 @@ return {
     "argumentDefinitions": [],
     "selections": [
       {
-        "kind": "FragmentSpread",
-        "name": "TagList_alltags",
-        "args": null
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "allTags",
+        "storageKey": null,
+        "args": null,
+        "concreteType": "TagNodeConnection",
+        "plural": false,
+        "selections": [
+          {
+            "kind": "FragmentSpread",
+            "name": "TagList_tags",
+            "args": null
+          }
+        ]
       }
     ]
   },
@@ -82,8 +81,8 @@ return {
         "kind": "LinkedField",
         "alias": null,
         "name": "allTags",
-        "storageKey": "allTags(first:10)",
-        "args": (v0/*: any*/),
+        "storageKey": null,
+        "args": null,
         "concreteType": "TagNodeConnection",
         "plural": false,
         "selections": [
@@ -118,60 +117,12 @@ return {
                     "name": "name",
                     "args": null,
                     "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "__typename",
-                    "args": null,
-                    "storageKey": null
                   }
                 ]
-              },
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "name": "cursor",
-                "args": null,
-                "storageKey": null
-              }
-            ]
-          },
-          {
-            "kind": "LinkedField",
-            "alias": null,
-            "name": "pageInfo",
-            "storageKey": null,
-            "args": null,
-            "concreteType": "PageInfo",
-            "plural": false,
-            "selections": [
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "name": "endCursor",
-                "args": null,
-                "storageKey": null
-              },
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "name": "hasNextPage",
-                "args": null,
-                "storageKey": null
               }
             ]
           }
         ]
-      },
-      {
-        "kind": "LinkedHandle",
-        "alias": null,
-        "name": "allTags",
-        "args": (v0/*: any*/),
-        "handle": "connection",
-        "key": "TagList_allTags",
-        "filters": []
       }
     ]
   },
@@ -179,11 +130,10 @@ return {
     "operationKind": "query",
     "name": "TagListPageQuery",
     "id": null,
-    "text": "query TagListPageQuery {\n  ...TagList_alltags\n}\n\nfragment TagList_alltags on Query {\n  allTags(first: 10) {\n    edges {\n      node {\n        ...Tag_tag\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment Tag_tag on TagNode {\n  id\n  name\n}\n",
+    "text": "query TagListPageQuery {\n  allTags {\n    ...TagList_tags\n  }\n}\n\nfragment TagList_tags on TagNodeConnection {\n  edges {\n    node {\n      ...Tag_tag\n      id\n    }\n  }\n}\n\nfragment Tag_tag on TagNode {\n  id\n  name\n}\n",
     "metadata": {}
   }
 };
-})();
 // prettier-ignore
-(node/*: any*/).hash = 'd5a705a9587d2449323b092a7cd3089b';
+(node/*: any*/).hash = '05979b0ee86e8a13e35ba322cbd11978';
 module.exports = node;
