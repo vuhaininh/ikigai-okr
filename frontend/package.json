@@ -25,7 +25,7 @@
     "css-loader": "3.2.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.1.0",
     "eslint-loader": "3.0.2",
     "eslint-plugin-flowtype": "3.13.0",
@@ -43,8 +43,6 @@
     "jest-watch-typeahead": "0.4.2",
     "mini-css-extract-plugin": "0.8.0",
     "moment": "^2.24.0",
-    "object.assign": "^4.1.0",
-    "object.entries": "^1.1.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.5.0",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -97,11 +95,7 @@
   },
   "devDependencies": {
     "babel-plugin-relay": "^8.0.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-prettier": "^3.1.2",
     "graphql": "^14.5.8",
-    "prettier": "^1.19.1",
     "relay-compiler": "^8.0.0"
   },
   "jest": {

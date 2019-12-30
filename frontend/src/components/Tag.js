@@ -8,6 +8,7 @@ class Tag extends Component {
     render() { 
         return ( 
             <div>
+                <div>{this.props.tag.id}</div>
                 <div>{this.props.tag.name}</div>
             </div>
          );
