@@ -1,9 +1,15 @@
 import React from 'react';
 import './App.css';
 import TagListPage from './components/TagListPage';
+import CreateTag from './components/CreateTag';
+import { EuiFlexGrid, EuiFlexItem } from '@elastic/eui';
+
 function App() {
   return (
-    <TagListPage /> 
+    <div>
+      <CreateTag />
+      <TagListPage />
+    </div>
   );
 }
 
