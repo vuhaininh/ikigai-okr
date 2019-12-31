@@ -55,3 +55,10 @@ def load_objective_data():
 
 def load_key_result_data():
     create_sample_key_results()
+
+
+def load_all_data():
+    load_user_data()
+    load_tag_data()
+    load_objective_data()
+    load_key_result_data()

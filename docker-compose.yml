@@ -38,8 +38,10 @@ services:
       - frontend:/app/node_modules
     ports:
       - "3000:3000"
+      - "35729:35729"
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true #false in production
     depends_on:
       - backend
     command: npm start

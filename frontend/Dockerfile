@@ -12,5 +12,6 @@ RUN npm install
 COPY . /app/
 
 EXPOSE 3000
+EXPOSE 35729
 
 CMD npm start
