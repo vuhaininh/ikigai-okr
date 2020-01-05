@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+import i18n from './i18n';
 import * as serviceWorker from './serviceWorker';
 import { BrowserProtocol, queryMiddleware } from 'farce';
 import { createFarceRouter, createRender } from 'found';
 import { Resolver } from 'found-relay';
 import environment from './Environment';
 import routes from './routes';
+import Entry from './components/Entry/Entry';
 const Router = createFarceRouter({
   historyProtocol: new BrowserProtocol(),
   historyMiddlewares: [queryMiddleware],

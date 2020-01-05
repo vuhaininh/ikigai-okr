@@ -3,7 +3,7 @@ import ikigaiLogo from '../../img/logo.svg';
 import { EuiIcon } from '@elastic/eui';
 export default () => (
   <div className="ikigaiLogo--header ">
-    <a href="/" class="euiHeaderLogo">
+    <a href="/" className="euiHeaderLogo">
       <EuiIcon type={ikigaiLogo}></EuiIcon>
       <span className="header__title">
         <span className="ikigaiText--red">Ikigai </span>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
 import {
   EuiFieldPassword,
   EuiFieldText,
@@ -18,10 +19,12 @@ class Login extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <div>
         <EuiText grow={false} textAlign="center">
-          <h2>Follow our goals right now</h2>
+          <h2>{t('login-title')}</h2>
         </EuiText>
 
         <EuiForm>
@@ -66,4 +69,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withTranslation()(Login);

@@ -5,6 +5,7 @@ import TagList from './components/Tag/TagList';
 import CreateTag from './components/Tag/CreateTag';
 import Entry from './components/Entry/Entry';
 import App from './App';
+
 const TagListQuery = graphql`
   query routes_TagList_Query {
     allTags {

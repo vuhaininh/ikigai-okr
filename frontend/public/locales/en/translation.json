@@ -1,0 +1,28 @@
+{
+  "language": "English",
+  "login-title": "Follow our goals right now",
+  "login": {
+    "email": "Email",
+    "enter-email": "Enter your email",
+    "password": "Password",
+    "login": "Login",
+    "Forgot password": "Forgot password"
+  },
+  "singup": {
+    "call": "Join Ikigai OKR today",
+    "signup": "Signup"
+  },
+  "entry-message": {
+    "title": "We:",
+    "m1": "Enjoy a meaningful life",
+    "m2": "Make our dreams come true",
+    "m3": "Become more persistent and successful",
+    "m4": "Connect to people by objectives and key results",
+    "m5": "Share and celebrate happiness together"
+  },
+  "bottom": {
+    "terms-of-service": "Terms of Service",
+    "pravicy": "Privacy",
+    "contact-us": "Contact Us"
+  }
+}

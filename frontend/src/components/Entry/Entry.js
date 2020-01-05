@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default () => (
   <div>
     <EuiHeader>
-      <EuiPanel paddingSize="xs">
+      <EuiPanel paddingSize="s">
         <IkigaiHeaderLogo />
       </EuiPanel>
     </EuiHeader>
@@ -82,11 +82,7 @@ export default () => (
         </EuiFlexItem>
       </EuiFlexGroup>
     </div>
-    <EuiBottomBar
-      paddingSize="s"
-      className="entry__bottom"
-      alignItems="center"
-    >
+    <EuiBottomBar paddingSize="s" className="entry__bottom">
       <EuiFlexGroup
         justifyContent="spaceAround"
         gutterSize="none"
