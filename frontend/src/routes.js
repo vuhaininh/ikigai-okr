@@ -4,6 +4,8 @@ import React from 'react';
 import TagList from './components/Tag/TagList';
 import CreateTag from './components/Tag/CreateTag';
 import Entry from './components/Entry/Entry';
+import Login from './components/Entry/Login';
+import Signup from './components/Entry/SignUp';
 import App from './App';
 
 const TagListQuery = graphql`
@@ -16,7 +18,10 @@ const TagListQuery = graphql`
 
 export default makeRouteConfig(
   <Route path="/" Component={App}>
-    <Route Component={Entry} />
+    <Route Component={Entry}>
+      <Route Component={Login} />
+      <Route path="signup" Component={Signup} />
+    </Route>
     <Route
       path="tags"
       Component={TagList}

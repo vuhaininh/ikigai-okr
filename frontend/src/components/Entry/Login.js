@@ -59,7 +59,7 @@ class Login extends Component {
           <EuiText size="m" className="login__signup">
             <span>{t('signup.call')}&nbsp;</span>
 
-            <EuiLink href="#">{t('signup.signup')}</EuiLink>
+            <EuiLink href="/signup">{t('signup.signup')}</EuiLink>
           </EuiText>
         </EuiForm>
       </div>

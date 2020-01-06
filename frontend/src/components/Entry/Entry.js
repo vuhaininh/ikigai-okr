@@ -4,7 +4,7 @@ import Login from './Login';
 import Statement from './Statement';
 import HeaderBar from '../Header/HeaderBar';
 import BottomBar from '../Bottom/BottomBar';
-export default () => (
+export default props => (
   <div>
     <HeaderBar />
     <div className="entry__container">
@@ -18,9 +18,7 @@ export default () => (
           <Statement />
         </EuiFlexItem>
 
-        <EuiFlexItem grow={4}>
-          <Login></Login>
-        </EuiFlexItem>
+        <EuiFlexItem grow={4}>{props.children}</EuiFlexItem>
       </EuiFlexGroup>
     </div>
     <BottomBar />

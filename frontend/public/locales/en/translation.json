@@ -12,7 +12,11 @@
   },
   "signup": {
     "call": "Join Ikigai OKR today",
-    "signup": "Signup"
+    "signup": "Signup",
+    "register": "Register",
+    "first-name": "First name",
+    "last-name": "Last name",
+    "new-password": "New password"
   },
   "entry-message": {
     "title": "We:",

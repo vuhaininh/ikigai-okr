@@ -12,7 +12,11 @@
   },
   "signup": {
     "call": "Tham gia Ikigai OKR hôm nay",
-    "signup": "Đăng ký"
+    "signup": "Đăng ký",
+    "register": "Đăng ký Ikigai OKR",
+    "first-name": "Tên",
+    "last-name": "Họ",
+    "new-password": "Mật khẩu mới"
   },
   "entry-message": {
     "title": "Chúng ta:",
