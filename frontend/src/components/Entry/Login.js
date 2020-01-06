@@ -12,7 +12,7 @@ import {
   EuiFlexItem,
   EuiLink,
 } from '@elastic/eui';
-
+import { Link } from 'found';
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +59,9 @@ class Login extends Component {
           <EuiText size="m" className="login__signup">
             <span>{t('signup.call')}&nbsp;</span>
 
-            <EuiLink href="/signup">{t('signup.signup')}</EuiLink>
+            <Link to="/signup" activeClassName="active" exact>
+              {t('signup.signup')}
+            </Link>
           </EuiText>
         </EuiForm>
       </div>
