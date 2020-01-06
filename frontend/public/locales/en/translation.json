@@ -1,14 +1,16 @@
 {
   "language": "English",
+  "select-language": "Change Language",
   "login-title": "Follow our goals right now",
   "login": {
     "email": "Email",
     "enter-email": "Enter your email",
     "password": "Password",
+    "enter-password": "Enter your password",
     "login": "Login",
-    "Forgot password": "Forgot password"
+    "forgot-password": "Forgot password?"
   },
-  "singup": {
+  "signup": {
     "call": "Join Ikigai OKR today",
     "signup": "Signup"
   },
@@ -22,7 +24,7 @@
   },
   "bottom": {
     "terms-of-service": "Terms of Service",
-    "pravicy": "Privacy",
+    "privacy": "Privacy",
     "contact-us": "Contact Us"
   }
 }

@@ -1,13 +1,16 @@
 {
   "language": "Tiếng Việt",
-  "login-title": "Theo đuổi mục tiêu ngay lúc này",
+  "select-language": "Đổi ngôn ngữ",
+  "login-title": "Theo đuổi mục tiêu ngay bây giờ",
   "login": {
     "email": "Email",
+    "enter-email": "Nhập email của bạn",
     "password": "Mật khẩu",
+    "enter-password": "Nhập mật khẩu của bạn",
     "login": "Đăng nhập",
-    "Forgot password": "Quên mật khẩu"
+    "forgot-password": "Quên mật khẩu?"
   },
-  "singup": {
+  "signup": {
     "call": "Tham gia Ikigai OKR hôm nay",
     "signup": "Đăng ký"
   },
@@ -16,12 +19,12 @@
     "m1": "Tận hưởng một cuộc sống ý nghĩa",
     "m2": "Biến ước mơ thành hiện thực",
     "m3": "Trở nên kiên trì và thành công hơn",
-    "m4": "Kết nối với mọi người bằng các mục tiêu và kết quả",
+    "m4": "Kết nối mọi người bằng các mục tiêu và kết quả",
     "m5": "Cùng nhau chia sẻ niềm vui"
   },
   "bottom": {
     "terms-of-service": "Điều khoản dịch vụ",
-    "pravicy": "Quyền riêng tư",
+    "privacy": "Quyền riêng tư",
     "contact-us": "Liên hệ chúng tôi"
   }
 }

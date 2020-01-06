@@ -23,21 +23,21 @@ class Login extends Component {
 
     return (
       <div>
-        <EuiText grow={false} textAlign="center">
+        <EuiText grow={false}>
           <h2>{t('login-title')}</h2>
         </EuiText>
 
         <EuiForm>
-          <EuiFormRow label="Email">
+          <EuiFormRow label={t('login.email')}>
             <EuiFieldText
               name="email"
               icon="user"
-              placeholder="Enter your email"
+              placeholder={t('login.enter-email')}
             />
           </EuiFormRow>
-          <EuiFormRow label="Password">
+          <EuiFormRow label={t('login.password')}>
             <EuiFieldPassword
-              placeholder="Enter your password"
+              placeholder={t('login.enter-password')}
               name="password"
             />
           </EuiFormRow>
@@ -45,23 +45,21 @@ class Login extends Component {
           <EuiFlexGroup justifyContent="spaceBetween" gutterSize="xl">
             <EuiFlexItem>
               <EuiButton type="submit" fill>
-                Log in
+                {t('login.login')}
               </EuiButton>
             </EuiFlexItem>
             <EuiFlexItem className="login__forgotpassword">
               <EuiText size="m">
-                <EuiLink href="#">Forgot password?</EuiLink>
+                <EuiLink href="#">
+                  {t('login.forgot-password')}
+                </EuiLink>
               </EuiText>
             </EuiFlexItem>
           </EuiFlexGroup>
-          <EuiText
-            size="m"
-            className="login__signup"
-            textAlign="center"
-          >
-            <span>Join Ikigai OKR today&nbsp;</span>
+          <EuiText size="m" className="login__signup">
+            <span>{t('signup.call')}&nbsp;</span>
 
-            <EuiLink href="#">Signup</EuiLink>
+            <EuiLink href="#">{t('signup.signup')}</EuiLink>
           </EuiText>
         </EuiForm>
       </div>
