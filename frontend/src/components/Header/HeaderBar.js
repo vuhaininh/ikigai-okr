@@ -7,6 +7,7 @@ import {
 } from '@elastic/eui';
 import IkigaiHeaderLogo from '../Common/IkigaiHeaderLogo';
 import LanguageBar from '../Settings/LanguageBar';
+import ControlBar from './ControlBar';
 class HeaderBar extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +29,9 @@ class HeaderBar extends Component {
         </EuiHeaderSection>
         {this.renderBreadcrumbs()}
         <EuiHeaderSection side="right">
+          <EuiHeaderSectionItem border="none">
+            <ControlBar />
+          </EuiHeaderSectionItem>
           <EuiHeaderSectionItem border="none">
             <LanguageBar />
           </EuiHeaderSectionItem>

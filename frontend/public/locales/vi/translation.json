@@ -1,7 +1,10 @@
 {
   "language": "Tiếng Việt",
   "select-language": "Đổi ngôn ngữ",
-  "login-title": "Theo đuổi mục tiêu ngay bây giờ",
+  "login-title": "Theo đuổi mục tiêu ngay đây",
+  "errors": {
+    "invalid-login": "Email hoặc mật khẩu không đúng"
+  },
   "login": {
     "email": "Email",
     "enter-email": "Nhập email của bạn",
@@ -10,6 +13,7 @@
     "login": "Đăng nhập",
     "forgot-password": "Quên mật khẩu?"
   },
+  "logout": "Đăng xuất",
   "signup": {
     "call": "Tham gia Ikigai OKR hôm nay",
     "signup": "Đăng ký",

@@ -2,6 +2,9 @@
   "language": "English",
   "select-language": "Change Language",
   "login-title": "Follow our goals right now",
+  "errors": {
+    "invalid-login": "Please enter a correct email and password"
+  },
   "login": {
     "email": "Email",
     "enter-email": "Enter your email",
@@ -10,6 +13,7 @@
     "login": "Login",
     "forgot-password": "Forgot password?"
   },
+  "logout": "Logout",
   "signup": {
     "call": "Join Ikigai OKR today",
     "signup": "Signup",

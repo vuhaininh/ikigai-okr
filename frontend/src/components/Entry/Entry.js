@@ -1,6 +1,5 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
-import Login from './Login';
 import Statement from './Statement';
 import HeaderBar from '../Header/HeaderBar';
 import BottomBar from '../Bottom/BottomBar';

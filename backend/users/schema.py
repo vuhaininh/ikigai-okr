@@ -28,10 +28,12 @@ class LogInMutation(graphene.Mutation):
         user = authenticate(email=email, password=password)
 
         if user is None:
-            raise Exception('Please enter a correct email and password')
+            # Please enter a correct email and password
+            raise Exception('100')
 
         if not user.is_active:
-            raise Exception('It seems your account has been disabled')
+            # It seems your account has been disabled
+            raise Exception('101')
         login(info.context, user)
         return cls(user=user, token=get_token(user))
 
