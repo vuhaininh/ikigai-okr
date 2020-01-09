@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
-import environment from '../../Environment';
+import environment from '../../../Environment';
 import TagList from './TagList';
 const TagListPageQuery = graphql`
   query TagListPageQuery {

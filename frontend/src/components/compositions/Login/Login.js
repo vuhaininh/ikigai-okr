@@ -13,7 +13,7 @@ import {
   EuiLink,
 } from '@elastic/eui';
 import { Link } from 'found';
-import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../../constants';
+import { saveUserData } from '../../../utils';
 import LoginUserMutation from '../../../mutations/LoginUserMutation';
 import { withRouter } from 'found';
 class Login extends Component {
@@ -117,17 +117,13 @@ class Login extends Component {
 
     LoginUserMutation(email, password, (id, token, errMessage) => {
       if (errMessage == null) {
-        this._saveUserData(id, token);
+        saveUserData(id, token);
         this._toggleError(false);
         this.props.router.replace('/tags');
       } else {
         this._toggleError(true);
       }
     });
-  };
-  _saveUserData = (id, token) => {
-    localStorage.setItem(IOK_USER_ID, id);
-    localStorage.setItem(IOK_AUTH_TOKEN, token);
   };
 }
 

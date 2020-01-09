@@ -7,7 +7,6 @@ import './Entry.scss';
 export default props => (
   <div>
     <HeaderEntry />
-
     <EuiFlexGroup
       columns={2}
       direction="row"
