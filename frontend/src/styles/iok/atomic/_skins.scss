@@ -1,0 +1,9 @@
+/* Text color */
+@each $colorName,
+$colorValue in $colors {
+    .#{$colorName} {
+        color: $colorValue !important;
+    }
+}
+
+/* Text color */

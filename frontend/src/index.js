@@ -8,7 +8,7 @@ import { createFarceRouter, createRender } from 'found';
 import { Resolver } from 'found-relay';
 import environment from './Environment';
 import routes from './routes';
-import Entry from './components/Entry/Entry';
+
 const Router = createFarceRouter({
   historyProtocol: new BrowserProtocol(),
   historyMiddlewares: [queryMiddleware],
