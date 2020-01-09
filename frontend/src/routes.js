@@ -5,7 +5,7 @@ import React from 'react';
 import {
   TagList,
   CreateTag,
-} from './components/compositions/TagList';
+} from './components/compositions/Tags';
 
 import { Entry } from './components/pages/Entry/';
 import { Login } from './components/compositions/Login';
