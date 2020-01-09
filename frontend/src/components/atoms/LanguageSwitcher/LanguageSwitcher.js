@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 
 import { EuiComboBox } from '@elastic/eui';
-
-class LanguageBar extends Component {
+import './LanguageSwitcher.scss';
+class LanguageSwitcher extends Component {
   constructor(props) {
     super(props);
     const { t } = this.props;
-    const language = t('select-language');
+    const selectLanguage = t('select-language');
 
     this.options = [
       {
-        label: language,
+        label: selectLanguage,
         value: 'en',
       },
       {
@@ -47,10 +47,10 @@ class LanguageBar extends Component {
         selectedOptions={selectedOptions}
         onChange={this.onChange}
         isClearable={false}
-        className="languageBar__selectBox"
+        className="languageSwitcher__selectBox"
       />
     );
   }
 }
 
-export default withTranslation()(LanguageBar);
+export default withTranslation()(LanguageSwitcher);

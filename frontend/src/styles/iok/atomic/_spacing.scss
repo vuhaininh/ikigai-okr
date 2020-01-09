@@ -36,6 +36,22 @@
         padding: $size;
     }
 
+    .pt#{$index} {
+        padding-top: $size;
+    }
+
+    .pr#{$index} {
+        padding-right: $size;
+    }
+
+    .pb#{$index} {
+        padding-bottom: $size;
+    }
+
+    .pl#{$index} {
+        padding-left: $size;
+    }
+
     /* Margin */
     .ma#{$index} {
         margin: $size;
@@ -47,5 +63,13 @@
 
     .mr#{$index} {
         margin-right: $size;
+    }
+
+    .mb#{$index} {
+        margin-bottom: $size;
+    }
+
+    .ml#{$index} {
+        margin-left: $size;
     }
 }

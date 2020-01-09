@@ -11,8 +11,8 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
 } from '@elastic/eui';
-import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../constants';
-import CreateUserMutation from '../../mutations/CreateUserMutation';
+import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../../constants';
+import CreateUserMutation from '../../../mutations/CreateUserMutation';
 import { withRouter } from 'found';
 class SignUp extends Component {
   constructor(props) {

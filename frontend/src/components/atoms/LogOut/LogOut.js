@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { EuiButtonEmpty } from '@elastic/eui';
 import { withTranslation } from 'react-i18next';
-import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../constants';
+import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../../constants';
 import { withRouter } from 'found';
-class ControlBar extends Component {
+class LogOut extends Component {
   render() {
     const { t } = this.props;
     const userId = localStorage.getItem(IOK_USER_ID);
@@ -29,4 +29,4 @@ class ControlBar extends Component {
   }
 }
 
-export default withTranslation()(withRouter(ControlBar));
+export default withTranslation()(withRouter(LogOut));

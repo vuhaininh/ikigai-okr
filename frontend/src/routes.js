@@ -3,9 +3,9 @@ import { graphql } from 'react-relay';
 import React from 'react';
 import TagList from './components/Tag/TagList';
 import CreateTag from './components/Tag/CreateTag';
-import Entry from './components/Entry/Entry';
-import Login from './components/Entry/Login';
-import Signup from './components/Entry/SignUp';
+import { Entry } from './components/pages/Entry/';
+import { Login } from './components/compositions/Login';
+import { SignUp } from './components/compositions/SignUp';
 import App from './App';
 
 const TagListQuery = graphql`
@@ -20,7 +20,7 @@ export default makeRouteConfig(
   <Route path="/" Component={App}>
     <Route Component={Entry}>
       <Route Component={Login} />
-      <Route path="signup" Component={Signup} />
+      <Route path="signup" Component={SignUp} />
     </Route>
     <Route
       path="tags"

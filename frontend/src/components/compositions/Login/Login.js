@@ -13,8 +13,8 @@ import {
   EuiLink,
 } from '@elastic/eui';
 import { Link } from 'found';
-import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../constants';
-import LoginUserMutation from '../../mutations/LoginUserMutation';
+import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../../constants';
+import LoginUserMutation from '../../../mutations/LoginUserMutation';
 import { withRouter } from 'found';
 class Login extends Component {
   state = {
@@ -86,7 +86,7 @@ class Login extends Component {
                     {t('login.login')}
                   </EuiButton>
                 </EuiFlexItem>
-                <EuiFlexItem className="login__forgotpassword">
+                <EuiFlexItem className="pt3">
                   <EuiText size="m">
                     <EuiLink href="#">
                       {t('login.forgot-password')}
@@ -94,7 +94,7 @@ class Login extends Component {
                   </EuiText>
                 </EuiFlexItem>
               </EuiFlexGroup>
-              <EuiText size="m" className="login__signup">
+              <EuiText size="m" className="mt4">
                 <span>{t('signup.call')}&nbsp;</span>
 
                 <Link to="/signup" activeClassName="active" exact>

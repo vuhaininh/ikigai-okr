@@ -5,10 +5,10 @@ import {
   EuiHeaderSectionItem,
   EuiHeaderBreadcrumbs,
 } from '@elastic/eui';
-import IkigaiHeaderLogo from '../Common/IkigaiHeaderLogo';
-import LanguageBar from '../Settings/LanguageBar';
-import ControlBar from './ControlBar';
-class HeaderBar extends Component {
+import { HeaderLogo } from '../../atoms/HeaderLogo';
+import { LanguageSwitcher } from '../../atoms/LanguageSwitcher';
+import { LogOut } from '../../atoms/LogOut';
+class HeaderEntry extends Component {
   constructor(props) {
     super(props);
   }
@@ -24,16 +24,16 @@ class HeaderBar extends Component {
       <EuiHeader>
         <EuiHeaderSection>
           <EuiHeaderSectionItem>
-            <IkigaiHeaderLogo />
+            <HeaderLogo />
           </EuiHeaderSectionItem>
         </EuiHeaderSection>
         {this.renderBreadcrumbs()}
         <EuiHeaderSection side="right">
           <EuiHeaderSectionItem border="none">
-            <ControlBar />
+            <LogOut />
           </EuiHeaderSectionItem>
           <EuiHeaderSectionItem border="none">
-            <LanguageBar />
+            <LanguageSwitcher />
           </EuiHeaderSectionItem>
         </EuiHeaderSection>
       </EuiHeader>
@@ -41,4 +41,4 @@ class HeaderBar extends Component {
   }
 }
 
-export default HeaderBar;
+export default HeaderEntry;
