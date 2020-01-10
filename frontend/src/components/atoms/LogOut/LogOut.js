@@ -12,10 +12,11 @@ class LogOut extends Component {
       <div>
         {userId ? (
           <EuiButtonEmpty
-            className="mt1"
+            className="mt2"
             onClick={() => {
               signOut();
               this.props.router.replace('/');
+              window.location.reload(true);
             }}
           >
             {t('logout')}

@@ -1,21 +1,24 @@
 {
   "data": {
     "__schema": {
-      "directives": [{
-          "args": [{
-            "defaultValue": null,
-            "description": "Included when true.",
-            "name": "if",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
+      "directives": [
+        {
+          "args": [
+            {
+              "defaultValue": null,
+              "description": "Included when true.",
+              "name": "if",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               }
             }
-          }],
+          ],
           "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
           "locations": [
             "FIELD",
@@ -25,20 +28,22 @@
           "name": "include"
         },
         {
-          "args": [{
-            "defaultValue": null,
-            "description": "Skipped when true.",
-            "name": "if",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
+          "args": [
+            {
+              "defaultValue": null,
+              "description": "Skipped when true.",
+              "name": "if",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               }
             }
-          }],
+          ],
           "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
           "locations": [
             "FIELD",
@@ -55,24 +60,28 @@
         "name": "Query"
       },
       "subscriptionType": null,
-      "types": [{
+      "types": [
+        {
           "description": null,
           "enumValues": null,
-          "fields": [{
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
+          "fields": [
+            {
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": "The ID of the object",
               "isDeprecated": false,
@@ -84,7 +93,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -188,20 +198,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": "The ID of the object",
               "isDeprecated": false,
@@ -213,7 +225,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -267,7 +280,7 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "allTags",
+              "name": "tags",
               "type": {
                 "kind": "OBJECT",
                 "name": "TagNodeConnection",
@@ -275,20 +288,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": "The ID of the object",
               "isDeprecated": false,
@@ -300,7 +315,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -374,7 +390,7 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "allObjectives",
+              "name": "objectives",
               "type": {
                 "kind": "OBJECT",
                 "name": "ObjectiveNodeConnection",
@@ -382,20 +398,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": "The ID of the object",
               "isDeprecated": false,
@@ -407,7 +425,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -481,7 +500,7 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "allKeyResults",
+              "name": "keyResults",
               "type": {
                 "kind": "OBJECT",
                 "name": "KeyResultNodeConnection",
@@ -498,7 +517,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The ID of the object.",
@@ -639,7 +659,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -705,7 +726,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -792,11 +814,13 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [{
-            "kind": "INTERFACE",
-            "name": "Node",
-            "ofType": null
-          }],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
+          ],
           "kind": "OBJECT",
           "name": "UserNode",
           "possibleTypes": null
@@ -804,27 +828,30 @@
         {
           "description": "An object with an ID",
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": "The ID of the object.",
-            "isDeprecated": false,
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": "The ID of the object.",
+              "isDeprecated": false,
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
               }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": null,
           "kind": "INTERFACE",
           "name": "Node",
-          "possibleTypes": [{
+          "possibleTypes": [
+            {
               "kind": "OBJECT",
               "name": "UserNode",
               "ofType": null
@@ -889,7 +916,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "Pagination data for this connection.",
@@ -935,7 +963,8 @@
         {
           "description": "The Relay compliant `PageInfo` type, containing data necessary to paginate this connection.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "When paginating forwards, are there more items?",
@@ -1001,7 +1030,8 @@
         {
           "description": "A Relay edge containing a `TagNode` and its cursor.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The item at the end of the edge",
@@ -1039,7 +1069,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The ID of the object.",
@@ -1104,7 +1135,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -1191,11 +1223,13 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [{
-            "kind": "INTERFACE",
-            "name": "Node",
-            "ofType": null
-          }],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
+          ],
           "kind": "OBJECT",
           "name": "TagNode",
           "possibleTypes": null
@@ -1203,7 +1237,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "Pagination data for this connection.",
@@ -1249,7 +1284,8 @@
         {
           "description": "A Relay edge containing a `ObjectiveNode` and its cursor.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The item at the end of the edge",
@@ -1287,7 +1323,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The ID of the object.",
@@ -1364,7 +1401,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -1446,7 +1484,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "before",
@@ -1533,11 +1572,13 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [{
-            "kind": "INTERFACE",
-            "name": "Node",
-            "ofType": null
-          }],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
+          ],
           "kind": "OBJECT",
           "name": "ObjectiveNode",
           "possibleTypes": null
@@ -1565,7 +1606,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "Pagination data for this connection.",
@@ -1611,7 +1653,8 @@
         {
           "description": "A Relay edge containing a `KeyResultNode` and its cursor.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The item at the end of the edge",
@@ -1649,7 +1692,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The ID of the object.",
@@ -1743,11 +1787,13 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [{
-            "kind": "INTERFACE",
-            "name": "Node",
-            "ofType": null
-          }],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
+          ],
           "kind": "OBJECT",
           "name": "KeyResultNode",
           "possibleTypes": null
@@ -1755,7 +1801,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "Pagination data for this connection.",
@@ -1801,7 +1848,8 @@
         {
           "description": "A Relay edge containing a `UserNode` and its cursor.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "The item at the end of the edge",
@@ -1839,21 +1887,24 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "input",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "CreateUserInput",
-                    "ofType": null
+          "fields": [
+            {
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "input",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateUserInput",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -1865,7 +1916,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "id",
@@ -1905,24 +1957,19 @@
               }
             },
             {
-              "args": [{
-                  "defaultValue": null,
-                  "description": null,
-                  "name": "email",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  }
-                },
+              "args": [
                 {
                   "defaultValue": null,
                   "description": null,
-                  "name": "password",
+                  "name": "input",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "LogInMutationInput",
+                      "ofType": null
+                    }
                   }
                 }
               ],
@@ -1932,21 +1979,23 @@
               "name": "login",
               "type": {
                 "kind": "OBJECT",
-                "name": "LogInMutation",
+                "name": "LogInMutationPayload",
                 "ofType": null
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "token",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "token",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -1958,20 +2007,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "input",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "CreateTagInput",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "input",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateTagInput",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -1983,7 +2034,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "id",
@@ -2023,20 +2075,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2048,20 +2102,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "input",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "CreateObjectiveInput",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "input",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateObjectiveInput",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2073,7 +2129,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "id",
@@ -2113,20 +2170,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2138,20 +2197,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "input",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "CreateKeyResultInput",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "input",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateKeyResultInput",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2163,7 +2224,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "id",
@@ -2203,20 +2265,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2228,7 +2292,8 @@
               }
             },
             {
-              "args": [{
+              "args": [
+                {
                   "defaultValue": null,
                   "description": null,
                   "name": "email",
@@ -2268,20 +2333,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "token",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "token",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2293,20 +2360,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "refreshToken",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "refreshToken",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2318,20 +2387,22 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": null,
-                "description": null,
-                "name": "input",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "RevokeInput",
-                    "ofType": null
+              "args": [
+                {
+                  "defaultValue": null,
+                  "description": null,
+                  "name": "input",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RevokeInput",
+                      "ofType": null
+                    }
                   }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -2352,18 +2423,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "user",
-            "type": {
-              "kind": "OBJECT",
-              "name": "UserNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "user",
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -2374,7 +2447,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "password",
@@ -2439,18 +2513,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "user",
-            "type": {
-              "kind": "OBJECT",
-              "name": "UserNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "user",
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -2461,7 +2537,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "password",
@@ -2510,7 +2587,36 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "user",
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserNode",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "errors",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ErrorType",
+                  "ofType": null
+                }
+              }
+            },
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -2527,10 +2633,10 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "user",
+              "name": "clientMutationId",
               "type": {
-                "kind": "OBJECT",
-                "name": "UserNode",
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             }
@@ -2538,24 +2644,136 @@
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
-          "name": "LogInMutation",
+          "name": "LogInMutationPayload",
           "possibleTypes": null
         },
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "token",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "field",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "messages",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
             }
-          }],
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "ErrorType",
+          "possibleTypes": null
+        },
+        {
+          "description": null,
+          "enumValues": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "defaultValue": null,
+              "description": "",
+              "name": "email",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "defaultValue": null,
+              "description": "",
+              "name": "password",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "defaultValue": null,
+              "description": null,
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            {
+              "defaultValue": null,
+              "description": null,
+              "name": "clientMutationId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "interfaces": null,
+          "kind": "INPUT_OBJECT",
+          "name": "LogInMutationInput",
+          "possibleTypes": null
+        },
+        {
+          "description": null,
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "token",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -2565,18 +2783,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "tag",
-            "type": {
-              "kind": "OBJECT",
-              "name": "TagNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "tag",
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -2587,7 +2807,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "name",
@@ -2648,18 +2869,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "tag",
-            "type": {
-              "kind": "OBJECT",
-              "name": "TagNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "tag",
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -2670,7 +2893,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "name",
@@ -2723,7 +2947,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -2757,18 +2982,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "objective",
-            "type": {
-              "kind": "OBJECT",
-              "name": "ObjectiveNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "objective",
+              "type": {
+                "kind": "OBJECT",
+                "name": "ObjectiveNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -2779,7 +3006,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "description",
@@ -2882,18 +3110,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "objective",
-            "type": {
-              "kind": "OBJECT",
-              "name": "ObjectiveNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "objective",
+              "type": {
+                "kind": "OBJECT",
+                "name": "ObjectiveNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -2904,7 +3134,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "description",
@@ -2991,7 +3222,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3025,18 +3257,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "keyResult",
-            "type": {
-              "kind": "OBJECT",
-              "name": "KeyResultNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "keyResult",
+              "type": {
+                "kind": "OBJECT",
+                "name": "KeyResultNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -3047,7 +3281,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "objective",
@@ -3118,18 +3353,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "keyResult",
-            "type": {
-              "kind": "OBJECT",
-              "name": "KeyResultNode",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "keyResult",
+              "type": {
+                "kind": "OBJECT",
+                "name": "KeyResultNode",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -3140,7 +3377,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": "",
               "name": "objective",
@@ -3199,7 +3437,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3233,7 +3472,8 @@
         {
           "description": "Obtain JSON Web Token mutation",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3267,18 +3507,20 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
-            "args": [],
-            "deprecationReason": null,
-            "description": null,
-            "isDeprecated": false,
-            "name": "payload",
-            "type": {
-              "kind": "SCALAR",
-              "name": "GenericScalar",
-              "ofType": null
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "payload",
+              "type": {
+                "kind": "SCALAR",
+                "name": "GenericScalar",
+                "ofType": null
+              }
             }
-          }],
+          ],
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
@@ -3298,7 +3540,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3344,7 +3587,8 @@
         {
           "description": null,
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3379,7 +3623,8 @@
           "description": null,
           "enumValues": null,
           "fields": null,
-          "inputFields": [{
+          "inputFields": [
+            {
               "defaultValue": null,
               "description": null,
               "name": "refreshToken",
@@ -3412,7 +3657,8 @@
         {
           "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation and subscription operations.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": "A list of all types supported by this server.",
@@ -3510,7 +3756,8 @@
         {
           "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name and description, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3551,16 +3798,18 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": "false",
-                "description": null,
-                "name": "includeDeprecated",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
+              "args": [
+                {
+                  "defaultValue": "false",
+                  "description": null,
+                  "name": "includeDeprecated",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -3620,16 +3869,18 @@
               }
             },
             {
-              "args": [{
-                "defaultValue": "false",
-                "description": null,
-                "name": "includeDeprecated",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
+              "args": [
+                {
+                  "defaultValue": "false",
+                  "description": null,
+                  "name": "includeDeprecated",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  }
                 }
-              }],
+              ],
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
@@ -3689,7 +3940,8 @@
         },
         {
           "description": "An enum describing what kind of type a given `__Type` is",
-          "enumValues": [{
+          "enumValues": [
+            {
               "deprecationReason": null,
               "description": "Indicates this type is a scalar.",
               "isDeprecated": false,
@@ -3748,7 +4000,8 @@
         {
           "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3854,7 +4107,8 @@
         {
           "description": "Arguments provided to Fields or Directives and the input fields of an InputObject are represented as Input Values which describe their type and optionally a default value.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3920,7 +4174,8 @@
         {
           "description": "One possible value for a given Enum. Enum values are unique values, not a placeholder for a string or numeric value. However an Enum value is returned in a JSON response as a string.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -3986,7 +4241,8 @@
         {
           "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL's execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
           "enumValues": null,
-          "fields": [{
+          "fields": [
+            {
               "args": [],
               "deprecationReason": null,
               "description": null,
@@ -4119,7 +4375,8 @@
         },
         {
           "description": "A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.",
-          "enumValues": [{
+          "enumValues": [
+            {
               "deprecationReason": null,
               "description": "Location adjacent to a query operation.",
               "isDeprecated": false,

@@ -114,12 +114,13 @@ class Login extends Component {
   };
   _login = () => {
     const { email, password } = this.state;
+    console.log(this.state);
 
     LoginUserMutation(email, password, (id, token, errMessage) => {
       if (errMessage == null) {
         saveUserData(id, token);
         this._toggleError(false);
-        this.props.router.replace('/tags');
+        window.location.reload(true);
       } else {
         this._toggleError(true);
       }

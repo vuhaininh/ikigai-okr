@@ -14,6 +14,9 @@ declare export opaque type Tag_tag$fragmentType: Tag_tag$ref;
 export type Tag_tag = {|
   +id: string,
   +name: string,
+  +user: {|
+    +email: string
+  |},
   +$refType: Tag_tag$ref,
 |};
 export type Tag_tag$data = Tag_tag;
@@ -45,9 +48,27 @@ const node/*: ReaderFragment*/ = {
       "name": "name",
       "args": null,
       "storageKey": null
+    },
+    {
+      "kind": "LinkedField",
+      "alias": null,
+      "name": "user",
+      "storageKey": null,
+      "args": null,
+      "concreteType": "UserNode",
+      "plural": false,
+      "selections": [
+        {
+          "kind": "ScalarField",
+          "alias": null,
+          "name": "email",
+          "args": null,
+          "storageKey": null
+        }
+      ]
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '68cb2c97bc926cf9c05b4327ab5a21d7';
+(node/*: any*/).hash = 'c30304c9a56541524361c4ee66c29917';
 module.exports = node;

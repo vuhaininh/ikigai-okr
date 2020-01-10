@@ -75,6 +75,11 @@ type DeleteTagMutation {
   deletedId: ID
 }
 
+type ErrorType {
+  field: String!
+  messages: [String!]!
+}
+
 """
 The `GenericScalar` scalar type represents a generic
 GraphQL scalar value that could be:
@@ -109,9 +114,18 @@ type KeyResultNodeEdge {
   cursor: String!
 }
 
-type LogInMutation {
-  token: String
+input LogInMutationInput {
+  email: String!
+  password: String!
+  id: ID
+  clientMutationId: String
+}
+
+type LogInMutationPayload {
   user: UserNode
+  errors: [ErrorType]
+  token: String
+  clientMutationId: String
 }
 
 type LogOutMutation {
@@ -121,7 +135,7 @@ type LogOutMutation {
 type Mutation {
   createUser(input: CreateUserInput!): CreateUserMutation
   patchUser(id: ID!, input: PatchUserInput!): PatchUserMutation
-  login(email: String, password: String): LogInMutation
+  login(input: LogInMutationInput!): LogInMutationPayload
   logout(token: String): LogOutMutation
   createTag(input: CreateTagInput!): CreateTagMutation
   patchTag(id: ID!, input: PatchTagInput!): PatchTagMutation
@@ -254,15 +268,15 @@ type Query {
 
   """The ID of the object"""
   tag(id: ID!): TagNode
-  allTags(before: String, after: String, first: Int, last: Int, name: String): TagNodeConnection
+  tags(before: String, after: String, first: Int, last: Int, name: String): TagNodeConnection
 
   """The ID of the object"""
   objective(id: ID!): ObjectiveNode
-  allObjectives(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): ObjectiveNodeConnection
+  objectives(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): ObjectiveNodeConnection
 
   """The ID of the object"""
   keyResult(id: ID!): KeyResultNode
-  allKeyResults(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): KeyResultNodeConnection
+  keyResults(before: String, after: String, first: Int, last: Int, description: String, description_Icontains: String, description_Istartswith: String): KeyResultNodeConnection
 }
 
 type Refresh {

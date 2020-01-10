@@ -280,7 +280,7 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "allTags",
+              "name": "tags",
               "type": {
                 "kind": "OBJECT",
                 "name": "TagNodeConnection",
@@ -390,7 +390,7 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "allObjectives",
+              "name": "objectives",
               "type": {
                 "kind": "OBJECT",
                 "name": "ObjectiveNodeConnection",
@@ -500,7 +500,7 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "allKeyResults",
+              "name": "keyResults",
               "type": {
                 "kind": "OBJECT",
                 "name": "KeyResultNodeConnection",
@@ -1961,21 +1961,15 @@
                 {
                   "defaultValue": null,
                   "description": null,
-                  "name": "email",
+                  "name": "input",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  }
-                },
-                {
-                  "defaultValue": null,
-                  "description": null,
-                  "name": "password",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "LogInMutationInput",
+                      "ofType": null
+                    }
                   }
                 }
               ],
@@ -1985,7 +1979,7 @@
               "name": "login",
               "type": {
                 "kind": "OBJECT",
-                "name": "LogInMutation",
+                "name": "LogInMutationPayload",
                 "ofType": null
               }
             },
@@ -2599,6 +2593,34 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
+              "name": "user",
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserNode",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "errors",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ErrorType",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
               "name": "token",
               "type": {
                 "kind": "SCALAR",
@@ -2611,10 +2633,10 @@
               "deprecationReason": null,
               "description": null,
               "isDeprecated": false,
-              "name": "user",
+              "name": "clientMutationId",
               "type": {
-                "kind": "OBJECT",
-                "name": "UserNode",
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             }
@@ -2622,7 +2644,117 @@
           "inputFields": null,
           "interfaces": [],
           "kind": "OBJECT",
-          "name": "LogInMutation",
+          "name": "LogInMutationPayload",
+          "possibleTypes": null
+        },
+        {
+          "description": null,
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "field",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "deprecationReason": null,
+              "description": null,
+              "isDeprecated": false,
+              "name": "messages",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "ErrorType",
+          "possibleTypes": null
+        },
+        {
+          "description": null,
+          "enumValues": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "defaultValue": null,
+              "description": "",
+              "name": "email",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "defaultValue": null,
+              "description": "",
+              "name": "password",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "defaultValue": null,
+              "description": null,
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            {
+              "defaultValue": null,
+              "description": null,
+              "name": "clientMutationId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "interfaces": null,
+          "kind": "INPUT_OBJECT",
+          "name": "LogInMutationInput",
           "possibleTypes": null
         },
         {

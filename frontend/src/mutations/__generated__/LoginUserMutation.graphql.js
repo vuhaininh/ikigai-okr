@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 5b3e69e34f1d3e7dc3391d2bc09a61ea
+ * @relayHash 14e1a38776854e09907fdd12e22bcc10
  */
 
 /* eslint-disable */
@@ -9,9 +9,14 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
+export type LogInMutationInput = {|
+  email: string,
+  password: string,
+  id?: ?string,
+  clientMutationId?: ?string,
+|};
 export type LoginUserMutationVariables = {|
-  email?: ?string,
-  password?: ?string,
+  input: LogInMutationInput
 |};
 export type LoginUserMutationResponse = {|
   +login: ?{|
@@ -31,10 +36,9 @@ export type LoginUserMutation = {|
 
 /*
 mutation LoginUserMutation(
-  $email: String
-  $password: String
+  $input: LogInMutationInput!
 ) {
-  login(email: $email, password: $password) {
+  login(input: $input) {
     token
     user {
       id
@@ -48,14 +52,8 @@ const node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
-    "name": "email",
-    "type": "String",
-    "defaultValue": null
-  },
-  {
-    "kind": "LocalArgument",
-    "name": "password",
-    "type": "String",
+    "name": "input",
+    "type": "LogInMutationInput!",
     "defaultValue": null
   }
 ],
@@ -68,16 +66,11 @@ v1 = [
     "args": [
       {
         "kind": "Variable",
-        "name": "email",
-        "variableName": "email"
-      },
-      {
-        "kind": "Variable",
-        "name": "password",
-        "variableName": "password"
+        "name": "input",
+        "variableName": "input"
       }
     ],
-    "concreteType": "LogInMutation",
+    "concreteType": "LogInMutationPayload",
     "plural": false,
     "selections": [
       {
@@ -135,11 +128,11 @@ return {
     "operationKind": "mutation",
     "name": "LoginUserMutation",
     "id": null,
-    "text": "mutation LoginUserMutation(\n  $email: String\n  $password: String\n) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n    }\n  }\n}\n",
+    "text": "mutation LoginUserMutation(\n  $input: LogInMutationInput!\n) {\n  login(input: $input) {\n    token\n    user {\n      id\n      email\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '6a817e1602bbe24d4f840fd399db98ef';
+(node/*: any*/).hash = '59f5aa39d630389b5dec1c56070db247';
 module.exports = node;

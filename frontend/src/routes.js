@@ -2,10 +2,7 @@ import { makeRouteConfig, Route } from 'found';
 import { graphql } from 'react-relay';
 import { getUserId } from './utils';
 import React from 'react';
-import {
-  TagList,
-  CreateTag,
-} from './components/compositions/Tags';
+import { TagList, CreateTag } from './components/compositions/Tags';
 
 import { Entry } from './components/pages/Entry/';
 import { Login } from './components/compositions/Login';
@@ -15,7 +12,7 @@ import App from './App';
 
 const TagListQuery = graphql`
   query routes_TagList_Query {
-    allTags {
+    tags {
       ...TagList_tags
     }
   }
@@ -36,7 +33,7 @@ export default makeRouteConfig(
       Component={TagList}
       query={TagListQuery}
       render={({ props }) =>
-        props ? <TagList tags={props.allTags} /> : <div />
+        props ? <TagList tags={props.tags} /> : <div />
       }
     />
     <Route path="create-tag" Component={CreateTag}></Route>
