@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
-import environment from '../../Environment';
+import environment from '../../../Environment';
 import TagList from './TagList';
 const TagListPageQuery = graphql`
   query TagListPageQuery {
-    allTags {
+    tags {
       ...TagList_tags
     }
   }
@@ -19,7 +19,7 @@ class TagListPage extends Component {
           if (error) {
             return <div>{error.message}</div>;
           } else if (props) {
-            return <TagList tags={props.allTags} />;
+            return <TagList tags={props.tags} />;
           }
           return <div>Loading</div>;
         }}

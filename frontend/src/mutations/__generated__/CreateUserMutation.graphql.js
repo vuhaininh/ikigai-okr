@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f4302895008a0cc32fd4e7d55fbaeed2
+ * @relayHash 8b1118fe683b574f24f8ee195ded89d8
  */
 
 /* eslint-disable */
@@ -15,10 +15,15 @@ export type CreateUserInput = {|
   firstName: string,
   lastName: string,
 |};
+export type LogInMutationInput = {|
+  email: string,
+  password: string,
+  id?: ?string,
+  clientMutationId?: ?string,
+|};
 export type CreateUserMutationVariables = {|
   input: CreateUserInput,
-  email?: ?string,
-  password?: ?string,
+  login: LogInMutationInput,
 |};
 export type CreateUserMutationResponse = {|
   +createUser: ?{|
@@ -44,15 +49,14 @@ export type CreateUserMutation = {|
 /*
 mutation CreateUserMutation(
   $input: CreateUserInput!
-  $email: String
-  $password: String
+  $login: LogInMutationInput!
 ) {
   createUser(input: $input) {
     user {
       id
     }
   }
-  login(email: $email, password: $password) {
+  login(input: $login) {
     token
     user {
       id
@@ -72,14 +76,8 @@ var v0 = [
   },
   {
     "kind": "LocalArgument",
-    "name": "email",
-    "type": "String",
-    "defaultValue": null
-  },
-  {
-    "kind": "LocalArgument",
-    "name": "password",
-    "type": "String",
+    "name": "login",
+    "type": "LogInMutationInput!",
     "defaultValue": null
   }
 ],
@@ -128,16 +126,11 @@ v2 = [
     "args": [
       {
         "kind": "Variable",
-        "name": "email",
-        "variableName": "email"
-      },
-      {
-        "kind": "Variable",
-        "name": "password",
-        "variableName": "password"
+        "name": "input",
+        "variableName": "login"
       }
     ],
-    "concreteType": "LogInMutation",
+    "concreteType": "LogInMutationPayload",
     "plural": false,
     "selections": [
       {
@@ -189,11 +182,11 @@ return {
     "operationKind": "mutation",
     "name": "CreateUserMutation",
     "id": null,
-    "text": "mutation CreateUserMutation(\n  $input: CreateUserInput!\n  $email: String\n  $password: String\n) {\n  createUser(input: $input) {\n    user {\n      id\n    }\n  }\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n    }\n  }\n}\n",
+    "text": "mutation CreateUserMutation(\n  $input: CreateUserInput!\n  $login: LogInMutationInput!\n) {\n  createUser(input: $input) {\n    user {\n      id\n    }\n  }\n  login(input: $login) {\n    token\n    user {\n      id\n      email\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'e8e5ff31dfede340435027f62e246186';
+(node/*: any*/).hash = '74f05bfd18aa25e0793a7fa58773a7ef';
 module.exports = node;

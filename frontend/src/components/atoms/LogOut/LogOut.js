@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { EuiButtonEmpty } from '@elastic/eui';
 import { withTranslation } from 'react-i18next';
-import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../../constants';
+import { getUserId, signOut } from '../../../utils';
 import { withRouter } from 'found';
 class LogOut extends Component {
   render() {
     const { t } = this.props;
-    const userId = localStorage.getItem(IOK_USER_ID);
+    const userId = getUserId();
 
     return (
       <div>
         {userId ? (
           <EuiButtonEmpty
-            className="mt1"
+            className="mt2"
             onClick={() => {
-              localStorage.removeItem(IOK_USER_ID);
-              localStorage.removeItem(IOK_AUTH_TOKEN);
+              signOut();
               this.props.router.replace('/');
+              window.location.reload(true);
             }}
           >
             {t('logout')}

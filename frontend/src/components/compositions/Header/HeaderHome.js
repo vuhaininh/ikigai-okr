@@ -5,8 +5,9 @@ import {
   EuiHeaderSectionItem,
   EuiHeaderBreadcrumbs,
 } from '@elastic/eui';
-import { HeaderLogo } from '../../atoms/HeaderLogo';
+import { BlackLogo } from '../../atoms/HeaderLogo';
 import { LanguageSwitcher } from '../../atoms/LanguageSwitcher';
+import { LogOut } from '../../atoms/LogOut';
 class HeaderEntry extends Component {
   constructor(props) {
     super(props);
@@ -23,11 +24,14 @@ class HeaderEntry extends Component {
       <EuiHeader>
         <EuiHeaderSection>
           <EuiHeaderSectionItem>
-            <HeaderLogo />
+            <BlackLogo />
           </EuiHeaderSectionItem>
         </EuiHeaderSection>
         {this.renderBreadcrumbs()}
         <EuiHeaderSection side="right">
+          <EuiHeaderSectionItem border="none">
+            <LogOut />
+          </EuiHeaderSectionItem>
           <EuiHeaderSectionItem border="none">
             <LanguageSwitcher />
           </EuiHeaderSectionItem>

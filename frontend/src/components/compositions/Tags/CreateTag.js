@@ -7,15 +7,20 @@ import {
   EuiFieldText,
   EuiButton,
 } from '@elastic/eui';
-import CreateTagMutation from '../../mutations/CreateTagMutation';
+import CreateTagMutation from '../../../mutations/CreateTagMutation';
+import { getUserId } from '../../../utils';
+import { Link } from 'found';
 class CreateTag extends Component {
   state = {
     name: ' ',
-    user: 'VXNlck5vZGU6Mw==',
+    user: getUserId(),
   };
   render() {
     return (
       <div>
+        <Link to="/" activeClassName="active" exact>
+          Home
+        </Link>
         <EuiFlexGrid columns={2}>
           <EuiFlexItem>
             <EuiForm>

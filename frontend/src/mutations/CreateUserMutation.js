@@ -4,15 +4,14 @@ import environment from '../Environment';
 const mutation = graphql`
   mutation CreateUserMutation(
     $input: CreateUserInput!
-    $email: String
-    $password: String
+    $login: LogInMutationInput!
   ) {
     createUser(input: $input) {
       user {
         id
       }
     }
-    login(email: $email, password: $password) {
+    login(input: $login) {
       token
       user {
         id
@@ -30,8 +29,10 @@ export default (form, callback) => {
       email,
       password,
     },
-    email,
-    password,
+    login: {
+      email,
+      password,
+    },
   };
   commitMutation(environment, {
     mutation,

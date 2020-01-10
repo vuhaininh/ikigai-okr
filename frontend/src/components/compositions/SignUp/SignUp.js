@@ -11,7 +11,7 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
 } from '@elastic/eui';
-import { IOK_USER_ID, IOK_AUTH_TOKEN } from '../../../constants';
+import { saveUserData } from '../../../utils';
 import CreateUserMutation from '../../../mutations/CreateUserMutation';
 import { withRouter } from 'found';
 class SignUp extends Component {
@@ -110,17 +110,13 @@ class SignUp extends Component {
   _signUp = () => {
     CreateUserMutation(this.state, (id, token, errMessage) => {
       if (errMessage == null) {
-        this._saveUserData(id, token);
+        saveUserData(id, token);
         this._toggleError(false);
         this.props.router.replace('/');
       } else {
         this._toggleError(true);
       }
     });
-  };
-  _saveUserData = (id, token) => {
-    localStorage.setItem(IOK_USER_ID, id);
-    localStorage.setItem(IOK_AUTH_TOKEN, token);
   };
 }
 

@@ -14,6 +14,7 @@ class TagNode(DjangoObjectType):
         model = Tag
         filter_fields = ['name']
         interfaces = (relay.Node,)
+        login_required = True
 
 
 class CreateTagMutation(DjangoCreateMutation):
@@ -81,12 +82,17 @@ class DeleteKeyResultMutation(DjangoDeleteMutation):
 
 class Query(graphene.ObjectType):
     tag = relay.Node.Field(TagNode)
-    all_tags = DjangoFilterConnectionField(TagNode)
+    tags = DjangoFilterConnectionField(TagNode)
+
+    def resolve_all_tags(self, info, **kwargs):
+        print(info.context.user)
+        return Tag.objects.all()
+
     objective = relay.Node.Field(ObjectiveNode)
-    all_objectives = DjangoFilterConnectionField(ObjectiveNode)
+    objectives = DjangoFilterConnectionField(ObjectiveNode)
 
     key_result = relay.Node.Field(KeyResultNode)
-    all_key_results = DjangoFilterConnectionField(KeyResultNode)
+    key_results = DjangoFilterConnectionField(KeyResultNode)
 
 
 class Mutation(graphene.AbstractType):

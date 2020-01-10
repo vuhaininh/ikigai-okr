@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash bdaab2016b7c554331d1a3f2c55d7564
+ * @relayHash 0d977cbeb4b18dd1c62833466b997ac7
  */
 
 /* eslint-disable */
@@ -12,7 +12,7 @@ import type { ConcreteRequest } from 'relay-runtime';
 type TagList_tags$ref = any;
 export type routes_TagList_QueryVariables = {||};
 export type routes_TagList_QueryResponse = {|
-  +allTags: ?{|
+  +tags: ?{|
     +$fragmentRefs: TagList_tags$ref
   |}
 |};
@@ -25,7 +25,7 @@ export type routes_TagList_Query = {|
 
 /*
 query routes_TagList_Query {
-  allTags {
+  tags {
     ...TagList_tags
   }
 }
@@ -42,10 +42,22 @@ fragment TagList_tags on TagNodeConnection {
 fragment Tag_tag on TagNode {
   id
   name
+  user {
+    email
+    id
+  }
 }
 */
 
-const node/*: ConcreteRequest*/ = {
+const node/*: ConcreteRequest*/ = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -57,7 +69,7 @@ const node/*: ConcreteRequest*/ = {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "allTags",
+        "name": "tags",
         "storageKey": null,
         "args": null,
         "concreteType": "TagNodeConnection",
@@ -80,7 +92,7 @@ const node/*: ConcreteRequest*/ = {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "allTags",
+        "name": "tags",
         "storageKey": null,
         "args": null,
         "concreteType": "TagNodeConnection",
@@ -104,19 +116,32 @@ const node/*: ConcreteRequest*/ = {
                 "concreteType": "TagNode",
                 "plural": false,
                 "selections": [
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "id",
-                    "args": null,
-                    "storageKey": null
-                  },
+                  (v0/*: any*/),
                   {
                     "kind": "ScalarField",
                     "alias": null,
                     "name": "name",
                     "args": null,
                     "storageKey": null
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "user",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "UserNode",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "email",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      (v0/*: any*/)
+                    ]
                   }
                 ]
               }
@@ -130,10 +155,11 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "routes_TagList_Query",
     "id": null,
-    "text": "query routes_TagList_Query {\n  allTags {\n    ...TagList_tags\n  }\n}\n\nfragment TagList_tags on TagNodeConnection {\n  edges {\n    node {\n      ...Tag_tag\n      id\n    }\n  }\n}\n\nfragment Tag_tag on TagNode {\n  id\n  name\n}\n",
+    "text": "query routes_TagList_Query {\n  tags {\n    ...TagList_tags\n  }\n}\n\nfragment TagList_tags on TagNodeConnection {\n  edges {\n    node {\n      ...Tag_tag\n      id\n    }\n  }\n}\n\nfragment Tag_tag on TagNode {\n  id\n  name\n  user {\n    email\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
+})();
 // prettier-ignore
-(node/*: any*/).hash = 'ab885d3410598e749aa680562e9056e2';
+(node/*: any*/).hash = 'b69e8f239640300e22a2150e0c5b73f5';
 module.exports = node;

@@ -4,8 +4,10 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django_cud.mutations import DjangoCreateMutation, DjangoPatchMutation, DjangoDeleteMutation
 import graphene
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import get_user_model, authenticate, login, logout
+from django.contrib.auth import get_user_model, authenticate
 from graphql_jwt.shortcuts import get_token
+from graphene_django.forms.mutation import DjangoModelFormMutation
+from django.forms import ModelForm
 
 
 class UserNode(DjangoObjectType):
@@ -15,17 +17,23 @@ class UserNode(DjangoObjectType):
         interfaces = (relay.Node,)
 
 
-class LogInMutation(graphene.Mutation):
+class LoginForm(ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('email', 'password')
+
+
+class LogInMutation(DjangoModelFormMutation):
     token = graphene.String()
     user = graphene.Field(UserNode)
 
-    class Arguments:
-        email = graphene.String()
-        password = graphene.String()
+    class Meta:
+        form_class = LoginForm
 
     @classmethod
-    def mutate(cls, root, info, email, password):
-        user = authenticate(email=email, password=password)
+    def mutate(cls, root, info, **input):
+        user = authenticate(
+            email=input['input']['email'], password=input['input']['password'])
 
         if user is None:
             # Please enter a correct email and password
@@ -34,7 +42,6 @@ class LogInMutation(graphene.Mutation):
         if not user.is_active:
             # It seems your account has been disabled
             raise Exception('101')
-        login(info.context, user)
         return cls(user=user, token=get_token(user))
 
 
@@ -46,7 +53,7 @@ class LogOutMutation(graphene.Mutation):
 
     @classmethod
     def mutate(cls, root, info, token):
-        logout(info.context)
+
         return cls
 
 
