@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'helpers',
     'rest_framework',
     'corsheaders',
+    'iok_utils'
 ]
 CORS_ORIGIN_WHITELIST = [
     'http://0.0.0.0:3000',

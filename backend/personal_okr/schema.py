@@ -7,6 +7,7 @@ import graphene
 from personal_okr.models import Tag, Objective, KeyResult
 from django.contrib.auth import get_user_model
 from users.schema import UserNode
+from graphql_jwt.decorators import login_required
 
 
 class TagNode(DjangoObjectType):
@@ -14,13 +15,13 @@ class TagNode(DjangoObjectType):
         model = Tag
         filter_fields = ['name']
         interfaces = (relay.Node,)
-        login_required = True
 
 
 class CreateTagMutation(DjangoCreateMutation):
     class Meta:
         model = Tag
-        login_required = True
+        login_required = True        
+        permissions = ("users.add_tag",)
 
 
 class PatchTagMutation(DjangoPatchMutation):
@@ -83,7 +84,16 @@ class DeleteKeyResultMutation(DjangoDeleteMutation):
 class Query(graphene.ObjectType):
     tag = relay.Node.Field(TagNode)
     tags = DjangoFilterConnectionField(TagNode)
-
+    my_tags = DjangoFilterConnectionField(TagNode);
+    
+    @login_required
+    def resolve_my_tags(self, info, **kwargs):
+        if not info.context.user.is_authenticated:
+            return Tag.objects.none()
+        else:
+            return Tag.objects.filter(user=info.context.user)
+    
+    @login_required
     def resolve_all_tags(self, info, **kwargs):
         print(info.context.user)
         return Tag.objects.all()
